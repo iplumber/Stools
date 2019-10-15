@@ -18,10 +18,7 @@ namespace STools
         public RainfallControl()
         {
             InitializeComponent();
-        }
 
-        private void buttonXml_Click(object sender, EventArgs e)
-        {
             comboBoxProvince.Items.Clear();
             try
             {
@@ -36,9 +33,10 @@ namespace STools
             }
             catch (Exception err)
             {
-                textBoxTestXml.Text = err.Message;
+                MessageBox.Show(err.Message);
             }
         }
+
 
         private void comboBoxProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -57,7 +55,7 @@ namespace STools
             }
             catch(Exception err)
             {
-                textBoxTestXml.Text = err.Message;
+                MessageBox.Show(err.Message);
             }
         }
         private void listBoxCity_Click(object sender, EventArgs e)
@@ -80,7 +78,7 @@ namespace STools
             }
             catch (Exception err)
             {
-                textBoxTestXml.Text = err.Message;
+                MessageBox.Show(err.Message);
             }
         }
 
@@ -110,9 +108,7 @@ namespace STools
 
                 queryText = string.Format("//Region[RegionName='{0}']//type/text()", regionName);
                 string type = getList(queryText)[0];
-
-                textBoxTestXml.Text = A + "\r\n" + c + "\r\n" + b + "\r\n" + n;
-                
+                                                
                 //是否需要转为全局的变量？
                 //formulaParameter selectedRegion = new formulaParameter();  
 
@@ -123,14 +119,14 @@ namespace STools
                 selectedRegion.unit = unit;
                 selectedRegion.type = type;
 
-                calculateDesignStormIntensity();
+                calculateDesignStormDensity();
                 //以上代码如何优化？
                 textBoxReturnPeriod.Text = selectedRegion.P.ToString();
                 textBoxRainRoutingTime.Text = selectedRegion.t.ToString();
             }
             catch (Exception err)
             {
-                textBoxTestXml.Text = err.Message;
+                MessageBox.Show(err.Message);
             }
         }
         //是否需要转为全局的变量？
@@ -148,29 +144,25 @@ namespace STools
                 new[] { Environment.NewLine },
                 StringSplitOptions.RemoveEmptyEntries
                 );
-            textBoxTestXml.Text = nodeText;
+            //textBoxTestXml.Text = nodeText;
             return lines;
         }
 
-        private void calculateDesignStormIntensity()
+        private void calculateDesignStormDensity()
         {
-            double designStormIntensity = -1;   //如何用try catch 设定为null 捕捉错误。
-            double designRunoffFlow = -1;       //如何用try catch 设定为null 捕捉错误。
+            double designStormDensity = -1;   //如何用try catch 设定为null 捕捉错误。
             if (selectedRegion.type == "A_Multiply_one_clgP")
             {
-                designStormIntensity = this.selectedRegion.getDesignStormIntensity(selectedRegion.type);
+                designStormDensity = this.selectedRegion.getDesignStormDensity(selectedRegion.type);
 
                 label_q_i.Text = "q =";
                 labelTop.Text = selectedRegion.A.ToString() + "(1+ " + selectedRegion.c.ToString() + "×lg" + selectedRegion.P.ToString() + ")";
                 labelBottom.Text = "(" + selectedRegion.t.ToString() + "+ " + selectedRegion.b.ToString() + ")";
                 labelExponent.Text = selectedRegion.n.ToString();
-                designRunoffFlow = designStormIntensity * Convert.ToDouble(textBoxTotalArea.Text) * Convert.ToDouble(textBoxTotalArea.Text);
-                labelDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2)) + "（L/s·ha)";
-                labelDesignRunoffFlow.Font = new Font(labelDesignRunoffFlow.Font.Name, 10, FontStyle.Bold);
             }
             if (selectedRegion.type == "A_Plus_clgP")
             {
-                designStormIntensity = this.selectedRegion.getDesignStormIntensity(selectedRegion.type);
+                designStormDensity = this.selectedRegion.getDesignStormDensity(selectedRegion.type);
 
                 label_q_i.Text = "i =";
                 labelTop.Text = selectedRegion.A.ToString() + " + " + selectedRegion.c.ToString() + "×lg" + selectedRegion.P.ToString();
@@ -178,21 +170,57 @@ namespace STools
                 labelExponent.Text = selectedRegion.n.ToString();
             }
 
+            double designRunoffFlow = -1;       //如何用try catch 设定为null 捕捉错误。
+            
+            designRunoffFlow = designStormDensity * Convert.ToDouble(textBoxWeightedRunoffCoefficient.Text)
+                                                    * Convert.ToDouble(textBoxTotalArea.Text);
+
             if (selectedRegion.unit == "mmPerMin")
             {
-                labelResult.Text = Convert.ToString(Math.Round(designStormIntensity, 2)) + "(mm/min)";
+                labelDesignStormDensity.Text =  "(mm/min)";
+                textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 3));
+
+                labelDesignRunoffFlow.Text = "(L/s)";
+                designRunoffFlow = designRunoffFlow / 60;
+                if (designRunoffFlow >= 1000.0)
+                {
+                    designRunoffFlow = designRunoffFlow / 1000;
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                }
+                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
             }
             else if (selectedRegion.unit == "mmPerHour")
             {
-                labelResult.Text = Convert.ToString(Math.Round(designStormIntensity, 2)) + "(mm/h)";
+                labelDesignStormDensity.Text = "(mm/h)";
+                textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 3));
+
+                labelDesignRunoffFlow.Text = "(L/s)";
+                designRunoffFlow = designRunoffFlow / 3600;
+                if (designRunoffFlow >= 1000.0)
+                {
+                    designRunoffFlow = designRunoffFlow / 1000;
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                }
+                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
             }
             else if (selectedRegion.unit == "LPerSecHa")
             {
-                labelResult.Text = Convert.ToString(Math.Round(designStormIntensity, 2)) + "(L/s·ha)";
+                labelDesignStormDensity.Text = "(L/s·ha)";
+                textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 2));
+
+                labelDesignRunoffFlow.Text = "(L/s)";
+                designRunoffFlow = designRunoffFlow / 10000;
+                if(designRunoffFlow >= 1000.0)
+                {
+                    designRunoffFlow = designRunoffFlow / 1000;
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                }
+                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
+                //labelDesignRunoffFlow.Font = new Font(labelDesignRunoffFlow.Font.Name, 10, FontStyle.Bold);
             }
             else
             {
-                textBoxTestXml.Text = "暴雨强度公式单位有误。";
+                MessageBox.Show("暴雨强度公式单位有误。");
             }
         }
 
@@ -205,7 +233,7 @@ namespace STools
                 if (retrunPeriod > 0 && retrunPeriod < 200)                     //超过这个范围目前没错误信息提示
                 {
                     selectedRegion.P = retrunPeriod;
-                    calculateDesignStormIntensity();
+                    calculateDesignStormDensity();
                 }
                 else
                 {
@@ -216,16 +244,12 @@ namespace STools
                 if (routingTime > 0 && routingTime < 120)                     //超过这个范围目前没错误信息提示
                 {
                     selectedRegion.t = routingTime;
-                    calculateDesignStormIntensity();
+                    calculateDesignStormDensity();
                 }
                 else
                 {
                     MessageBox.Show("地面流行时间请输入0~120的整数。");
                 }
-
-                
-
-
             }
             catch (Exception err)
             {
@@ -296,7 +320,7 @@ namespace STools
         public string unit;
         public string type;
 
-        public double getDesignStormIntensity(string _type)
+        public double getDesignStormDensity(string _type)
         {
             double designStormIntensity = -1;
             if (_type == "A_Plus_clgP")
