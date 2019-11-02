@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculatePipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculatePipe.Designer.cs">
+      <DependentUpon>CalculatePipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     <Compile Include="WaterSupplyControl.Designer.cs">
       <DependentUpon>WaterSupplyControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CalculatePipe.resx">
+      <DependentUpon>CalculatePipe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

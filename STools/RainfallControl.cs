@@ -161,7 +161,7 @@ namespace STools
                 designStormDensity = this.selectedRegion.getDesignStormDensity(selectedRegion.type);
 
                 label_q_i.Text = "q =";
-                labelTop.Text = selectedRegion.A.ToString() + "(1+ " + selectedRegion.c.ToString() + "×lg" + selectedRegion.P.ToString() + ")";
+                labelTop.Text = selectedRegion.A.ToString() + "×(1+ " + selectedRegion.c.ToString() + "×lg" + selectedRegion.P.ToString() + ")";
                 labelBottom.Text = "(" + selectedRegion.t.ToString() + "+ " + selectedRegion.b.ToString() + ")";
                 labelExponent.Text = selectedRegion.n.ToString();
             }
@@ -311,13 +311,25 @@ namespace STools
             }
         }
 
+        public void SetTotalArea(double _boxTotalArea)
+        {
+            textBoxTotalArea.Text = _boxTotalArea.ToString();
+        }
+
+        public void SetWeightedRunoffCoefficient(double _weightedRunoffCoefficient)
+        {
+            textBoxWeightedRunoffCoefficient.Text = Math.Round(_weightedRunoffCoefficient, 3).ToString();
+        }
+
+        RunoffCoefficient formRunoffCoefficient = new RunoffCoefficient();
         private void buttonCalWeightedRunoffCoefficient_Click(object sender, EventArgs e)
         {
             //bool isOpened = false;
-            RunoffCoefficient formRunoffCoefficient = new RunoffCoefficient();
-            formRunoffCoefficient.ShowDialog();
-            textBoxWeightedRunoffCoefficient.Text = Math.Round(formRunoffCoefficient.weightedRunoffCoefficient, 3).ToString();
-            textBoxTotalArea.Text = formRunoffCoefficient.totalArea.ToString();
+            formRunoffCoefficient.ParentDialog = this;
+            formRunoffCoefficient.Show();
+
+            //textBoxWeightedRunoffCoefficient.Text = Math.Round(formRunoffCoefficient.weightedRunoffCoefficient, 3).ToString();
+            //textBoxTotalArea.Text = formRunoffCoefficient.totalArea.ToString();
 
             //sRetrunPeriod formReturnPeriod = new RetrunPeriod();
             //foreach (Form _form in Application.OpenForms)
@@ -333,7 +345,13 @@ namespace STools
             //}
         }
 
-
+        CalculatePipe formCalculatePipe = new CalculatePipe();
+        private void buttonCalculatePipe_Click(object sender, EventArgs e)
+        {
+            formCalculatePipe.ParentDialog = this;
+            formCalculatePipe.SetDesignRunoffFlow(textBoxDesignRunoffFlow.Text);
+            formCalculatePipe.Show();
+        }
     }
 
     public class formulaParameter

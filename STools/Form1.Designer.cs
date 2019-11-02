@@ -72,9 +72,9 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(498, 26);
+            this.label2.Location = new System.Drawing.Point(486, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 40);
+            this.label2.Size = new System.Drawing.Size(91, 60);
             this.label2.TabIndex = 2;
             this.label2.Text = "E-mail: iplumber@163.com";
             // 
@@ -82,7 +82,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(748, 36);
+            this.label3.Location = new System.Drawing.Point(616, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(105, 20);
             this.label3.TabIndex = 3;
@@ -98,7 +98,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(947, 763);
+            this.tabControl1.Size = new System.Drawing.Size(755, 614);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -106,8 +106,8 @@
             this.tabPage1.Controls.Add(this.rainfallControl1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(939, 730);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(747, 581);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "雨水";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(939, 1147);
+            this.tabPage3.Size = new System.Drawing.Size(748, 478);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "海绵";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -127,9 +127,9 @@
             this.tabPage2.Controls.Add(this.waterSupplyControl1);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tabPage2.Size = new System.Drawing.Size(939, 1147);
+            this.tabPage2.Size = new System.Drawing.Size(748, 478);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(953, 869);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(761, 720);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -167,7 +167,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(947, 92);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(755, 92);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // rainfallControl1
@@ -179,7 +179,7 @@
             this.rainfallControl1.Location = new System.Drawing.Point(3, 3);
             this.rainfallControl1.Margin = new System.Windows.Forms.Padding(0);
             this.rainfallControl1.Name = "rainfallControl1";
-            this.rainfallControl1.Size = new System.Drawing.Size(933, 724);
+            this.rainfallControl1.Size = new System.Drawing.Size(741, 575);
             this.rainfallControl1.TabIndex = 0;
             // 
             // waterSupplyControl1
@@ -187,14 +187,14 @@
             this.waterSupplyControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.waterSupplyControl1.Location = new System.Drawing.Point(3, 3);
             this.waterSupplyControl1.Name = "waterSupplyControl1";
-            this.waterSupplyControl1.Size = new System.Drawing.Size(933, 1145);
+            this.waterSupplyControl1.Size = new System.Drawing.Size(742, 472);
             this.waterSupplyControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 869);
+            this.ClientSize = new System.Drawing.Size(761, 720);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "Form1";

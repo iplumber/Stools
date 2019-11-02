@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -15,7 +17,9 @@ namespace STools
         {
 
             document = new XmlDocument();
-            document.Load(@"D:\91 STools\04 数据\省市区暴雨公式.xml");
+            string dir = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
+            document.Load(Path.Combine(dir, @".\省市区暴雨公式.xml"));
+            //document.Load(@"D:\91 STools\04 数据\省市1区暴雨公式.xml");
             //textBoxTestXml.Text = Update(document.DocumentElement.SelectNodes("."));
         }
 
