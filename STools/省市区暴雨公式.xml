@@ -13,8 +13,8 @@
         <c>0.846</c>
         <b>7.0</b>
         <n>0.656</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       </Regions>
     </City>
@@ -33,8 +33,8 @@
         <c>121.4918</c>
         <b>35.7266</b>
         <n>1.2341</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>
@@ -48,8 +48,8 @@
         <c>18.2623</c>
         <b>23.1084</b>
         <n>0.7897</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>
@@ -68,8 +68,8 @@
         <c>53.476</c>
         <b>31.546</b>
         <n>1.008</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       <Region>
         <RegionName>临安</RegionName>
@@ -77,8 +77,8 @@
         <c>6.154</c>
         <b>6.124</b>
         <n>0.623</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>
@@ -92,8 +92,8 @@
         <c>0.685</c>
         <b>25.309</b>
         <n>0.921</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>余姚</RegionName>
@@ -101,8 +101,8 @@
         <c>0.698</c>
         <b>9.77</b>
         <n>0.723</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>慈溪</RegionName>
@@ -110,8 +110,8 @@
         <c>0.854</c>
         <b>14.466</b>
         <n>0.781</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>奉化</RegionName>
@@ -119,8 +119,8 @@
         <c>0.75</c>
         <b>2.08</b>
         <n>0.508</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>宁海</RegionName>
@@ -128,8 +128,8 @@
         <c>0.724</c>
         <b>4.676</b>
         <n>0.579</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>象山</RegionName>
@@ -137,8 +137,8 @@
         <c>0.698</c>
         <b>6.741</b>
         <n>0.575</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>鄞州</RegionName>
@@ -146,8 +146,8 @@
         <c>0.685</c>
         <b>25.309</b>
         <n>0.921</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>镇海</RegionName>
@@ -155,8 +155,8 @@
         <c>0.958</c>
         <b>15.05</b>
         <n>0.769</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       <Region>
         <RegionName>北仑</RegionName>
@@ -164,8 +164,8 @@
         <c>0.945</c>
         <b>13.262</b>
         <n>0.763</n>
-        <unit>LPerSecHa</unit>
-        <type>A_Multiply_one_clgP</type>
+        <unit>L/S_Ha</unit>
+        <type>A*(1+clgP)</type>
       </Region>
       </Regions>
     </City>
@@ -184,8 +184,8 @@
         <c>421.3056</c>
         <b>68.8627</b>
         <n>1.3699</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>
@@ -199,8 +199,8 @@
         <c>22.2017</c>
         <b>24.6215</b>
         <n>0.8354</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       <Region>
         <RegionName>石门</RegionName>
@@ -208,8 +208,8 @@
         <c>19.9149</c>
         <b>23.4827</b>
         <n>0.8326</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>
@@ -223,8 +223,8 @@
         <c>18.2623</c>
         <b>23.1084</b>
         <n>0.7897</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       <Region>
         <RegionName>常宁</RegionName>
@@ -232,8 +232,8 @@
         <c>13.0106</c>
         <b>18.5226</b>
         <n>0.8043</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       <Region>
         <RegionName>南岳山</RegionName>
@@ -241,8 +241,8 @@
         <c>17.4039</c>
         <b>21.5052</b>
         <n>0.8445</n>
-        <unit>mmPerMin</unit>
-        <type>A_Plus_clgP</type>
+        <unit>mm/min</unit>
+        <type>A+clgP</type>
       </Region>
       </Regions>
     </City>

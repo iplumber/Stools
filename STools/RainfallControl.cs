@@ -112,7 +112,7 @@ namespace STools
                 queryText = string.Format("//Region[RegionName='{0}']//type/text()", regionName);
                 string type = getList(queryText)[0];
 
-                //是否需要转为全局的变量？
+                //是否需要转为全局的变量？ 后来好像已经转为类的成员变量了。
                 //formulaParameter selectedRegion = new formulaParameter();  
 
                 selectedRegion.A = Convert.ToDouble(A);
@@ -156,7 +156,7 @@ namespace STools
         private void calculateDesignStormDensity()
         {
             double designStormDensity = -1;   //如何用try catch 设定为null 捕捉错误。
-            if (selectedRegion.type == "A_Multiply_one_clgP")
+            if (selectedRegion.type == "A*(1+clgP)")
             {
                 designStormDensity = this.selectedRegion.getDesignStormDensity(selectedRegion.type);
 
@@ -165,7 +165,7 @@ namespace STools
                 labelBottom.Text = "(" + selectedRegion.t.ToString() + "+ " + selectedRegion.b.ToString() + ")";
                 labelExponent.Text = selectedRegion.n.ToString();
             }
-            if (selectedRegion.type == "A_Plus_clgP")
+            if (selectedRegion.type == "A+clgP")
             {
                 designStormDensity = this.selectedRegion.getDesignStormDensity(selectedRegion.type);
 
@@ -175,85 +175,80 @@ namespace STools
                 labelExponent.Text = selectedRegion.n.ToString();
             }
 
-            double designRunoffFlow = -1;       //如何用try catch 设定为null 捕捉错误。
-            
-            designRunoffFlow = designStormDensity * Convert.ToDouble(textBoxWeightedRunoffCoefficient.Text)
-                                                    * Convert.ToDouble(textBoxTotalArea.Text);
-
-
-            //label_Q.Location = new System.Drawing.Point(390, 516);
-
-            if (selectedRegion.unit == "mmPerMin")
+            double designTotalRunoffFlow = -1;       //如何用try catch 设定为null 捕捉错误。
+            designTotalRunoffFlow = designStormDensity * Convert.ToDouble(textBoxWeightedRunoffCoefficient.Text)
+                                                       * Convert.ToDouble(textBoxTotalArea.Text);
+            if (selectedRegion.unit == "mm/min")
             {
                 labelDesignStormDensity.Text =  "(mm/min)";
                 textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 3));
-
-                labelDesignRunoffFlow.Text = "(L/s)";
-                designRunoffFlow = designRunoffFlow / 60;
-
-                label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
-                            + textBoxWeightedRunoffCoefficient.Text + " × "
-                            + textBoxTotalArea.Text + " / 60 ";
-
-                if (designRunoffFlow >= 1000.0)
+                double designTotalRunoffFlow_M3PerSecond = designTotalRunoffFlow / 60 / 1000;
+                
+                if (designTotalRunoffFlow_M3PerSecond <= 1.0)
                 {
-                    designRunoffFlow = designRunoffFlow / 1000;
-                    labelDesignRunoffFlow.Text = "(m^3/s)";
-                    label_Q.Text = label_Q.Text + " / 1000 = ";
+                    double designTotalRunoffFlow_LPerSecond = designTotalRunoffFlow_M3PerSecond * 1000;
+                    labelDesignRunoffFlow.Text = "(L/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " / 60 =";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_LPerSecond, 2));
                 }
                 else
                 {
-                    label_Q.Text += " =";
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " /60/1000=";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_M3PerSecond, 2));
                 }
-                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
             }
-            else if (selectedRegion.unit == "mmPerHour")
+            else if (selectedRegion.unit == "mm/h")
             {
                 labelDesignStormDensity.Text = "(mm/h)";
                 textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 3));
+                double designTotalRunoffFlow_M3PerSecond = designTotalRunoffFlow / 3600 / 1000;
 
-                labelDesignRunoffFlow.Text = "(L/s)";
-                designRunoffFlow = designRunoffFlow / 3600;
-
-                label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
-                            + textBoxWeightedRunoffCoefficient.Text + " × "
-                            + textBoxTotalArea.Text + " / 3600 ";
-
-                if (designRunoffFlow >= 1000.0)
+                if (designTotalRunoffFlow_M3PerSecond <= 1.0)
                 {
-                    designRunoffFlow = designRunoffFlow / 1000;
-                    labelDesignRunoffFlow.Text = "(m^3/s)";
-                    label_Q.Text = label_Q.Text + " / 1000 = ";
+                    double designTotalRunoffFlow_LPerSecond = designTotalRunoffFlow_M3PerSecond * 1000;
+                    labelDesignRunoffFlow.Text = "(L/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " / 3600 =";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_LPerSecond, 2));
                 }
                 else
                 {
-                    label_Q.Text += " =";
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " /3600/1000=";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_M3PerSecond, 2));
                 }
-                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
             }
-            else if (selectedRegion.unit == "LPerSecHa")
+            else if (selectedRegion.unit == "L/S_Ha")
             {
                 labelDesignStormDensity.Text = "(L/s·ha)";
                 textBoxDesignStormDensity.Text = Convert.ToString(Math.Round(designStormDensity, 2));
+                double designTotalRunoffFlow_M3PerSecond = designTotalRunoffFlow / 10000 / 1000;
 
-                labelDesignRunoffFlow.Text = "(L/s)";
-                designRunoffFlow = designRunoffFlow / 10000;
-
-                label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
-                            + textBoxWeightedRunoffCoefficient.Text + " × "
-                            + textBoxTotalArea.Text + " / 3600 ";
-
-                if (designRunoffFlow >= 1000.0)
+                if (designTotalRunoffFlow_M3PerSecond <= 1.0)
                 {
-                    designRunoffFlow = designRunoffFlow / 1000;
-                    labelDesignRunoffFlow.Text = "(m^3/s)";
-                    label_Q.Text = label_Q.Text + " / 1000 = ";
+                    double designTotalRunoffFlow_LPerSecond = designTotalRunoffFlow_M3PerSecond * 1000;
+                    labelDesignRunoffFlow.Text = "(L/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " / 10000 =";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_LPerSecond, 2));
                 }
                 else
                 {
-                    label_Q.Text += " =";
+                    labelDesignRunoffFlow.Text = "(m^3/s)";
+                    label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
+                                                + textBoxWeightedRunoffCoefficient.Text + " × "
+                                                + textBoxTotalArea.Text + " /10000/1000=";
+                    textBoxDesignTotalRunoffFlow.Text = Convert.ToString(Math.Round(designTotalRunoffFlow_M3PerSecond, 2));
                 }
-                textBoxDesignRunoffFlow.Text = Convert.ToString(Math.Round(designRunoffFlow, 2));
                 //labelDesignRunoffFlow.Font = new Font(labelDesignRunoffFlow.Font.Name, 10, FontStyle.Bold);
             }
             else
@@ -267,18 +262,18 @@ namespace STools
             try
             {
                 int retrunPeriod = Convert.ToInt16(textBoxReturnPeriod.Text);
-                if (retrunPeriod > 0 && retrunPeriod < 200)                     //超过这个范围目前没错误信息提示
+                if (retrunPeriod > 0 && retrunPeriod <= 200)                     //超过这个范围目前没错误信息提示
                 {
                     selectedRegion.P = retrunPeriod;
                     calculateDesignStormDensity();
                 }
                 else
                 {
-                    MessageBox.Show("重现期请输入0~200的整数。");
+                    MessageBox.Show("重现期请输入1~200的整数。");
                 }
 
                 int routingTime = Convert.ToInt16(textBoxRainRoutingTime.Text);
-                if (routingTime > 0 && routingTime < 120)                     //超过这个范围目前没错误信息提示
+                if (routingTime >= 0 && routingTime <= 120)                     //超过这个范围目前没错误信息提示
                 {
                     selectedRegion.t = routingTime;
                     calculateDesignStormDensity();
@@ -294,21 +289,24 @@ namespace STools
             }
         }
 
+        ReturnPeriod formReturnPeriod = new ReturnPeriod();
         private void buttonShowReturnPeriodValue_Click(object sender, EventArgs e)
         {
-            bool isOpened = false;
-            RetrunPeriod formReturnPeriod = new RetrunPeriod();
-            foreach (Form _form in Application.OpenForms)
-            {
-                if (_form.Name == "RetrunPeriod")
-                {
-                    isOpened = true;
-                }
-            }
-            if (!isOpened)
-            {
-                formReturnPeriod.Show();
-            }
+            formReturnPeriod.ParentDialog = this;
+            formReturnPeriod.Show();
+            //bool isOpened = false;
+            //RetrunPeriod formReturnPeriod = new RetrunPeriod();
+            //foreach (Form _form in Application.OpenForms)
+            //{
+            //    if (_form.Name == "RetrunPeriod")
+            //    {
+            //        isOpened = true;
+            //    }
+            //}
+            //if (!isOpened)
+            //{
+            //    formReturnPeriod.Show();
+            //}
         }
 
         public void SetTotalArea(double _boxTotalArea)
@@ -320,7 +318,7 @@ namespace STools
         {
             textBoxWeightedRunoffCoefficient.Text = Math.Round(_weightedRunoffCoefficient, 3).ToString();
         }
-
+        
         RunoffCoefficient formRunoffCoefficient = new RunoffCoefficient();
         private void buttonCalWeightedRunoffCoefficient_Click(object sender, EventArgs e)
         {
@@ -345,11 +343,13 @@ namespace STools
             //}
         }
 
-        CalculatePipe formCalculatePipe = new CalculatePipe();
+
         private void buttonCalculatePipe_Click(object sender, EventArgs e)
         {
+            CalculatePipe formCalculatePipe = new CalculatePipe();
             formCalculatePipe.ParentDialog = this;
-            formCalculatePipe.SetDesignRunoffFlow(textBoxDesignRunoffFlow.Text);
+            formCalculatePipe.SetDesignRunoffFlowAndUnit(textBoxDesignTotalRunoffFlow.Text, labelDesignRunoffFlow.Text);
+            formCalculatePipe.theFirstTimeCalculateDiameterAndSlope();
             formCalculatePipe.Show();
         }
     }
@@ -380,11 +380,11 @@ namespace STools
         public double getDesignStormDensity(string _type)
         {
             double designStormIntensity = -1;
-            if (_type == "A_Plus_clgP")
+            if (_type == "A+clgP")
             {
                 designStormIntensity = (A + c * Math.Log10(P)) / Math.Pow((t + b), n);
             }
-            if (_type == "A_Multiply_one_clgP")
+            if (_type == "A*(1+clgP)")
             {
                 designStormIntensity = A * (1 + c * Math.Log10(P)) / Math.Pow((t + b), n);
             }

@@ -136,6 +136,7 @@
             this.textBoxRoofCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxRoofCoeff.TabIndex = 1;
             this.textBoxRoofCoeff.Text = "1.00";
+            this.textBoxRoofCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxRoofArea
             // 
@@ -144,6 +145,7 @@
             this.textBoxRoofArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxRoofArea.TabIndex = 8;
             this.textBoxRoofArea.Text = "0";
+            this.textBoxRoofArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
@@ -161,6 +163,7 @@
             this.textBoxConcreteOrAsphaltPavedCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxConcreteOrAsphaltPavedCoeff.TabIndex = 2;
             this.textBoxConcreteOrAsphaltPavedCoeff.Text = "0.90";
+            this.textBoxConcreteOrAsphaltPavedCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxConcreteOrAsphaltPavedArea
             // 
@@ -169,6 +172,7 @@
             this.textBoxConcreteOrAsphaltPavedArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxConcreteOrAsphaltPavedArea.TabIndex = 9;
             this.textBoxConcreteOrAsphaltPavedArea.Text = "0";
+            this.textBoxConcreteOrAsphaltPavedArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -186,6 +190,7 @@
             this.textBoxBlockStonePavedCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxBlockStonePavedCoeff.TabIndex = 3;
             this.textBoxBlockStonePavedCoeff.Text = "0.60";
+            this.textBoxBlockStonePavedCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxBlockStonePavedArea
             // 
@@ -194,6 +199,7 @@
             this.textBoxBlockStonePavedArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxBlockStonePavedArea.TabIndex = 10;
             this.textBoxBlockStonePavedArea.Text = "0";
+            this.textBoxBlockStonePavedArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label7
             // 
@@ -211,6 +217,7 @@
             this.textBoxGradationStonePavedCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxGradationStonePavedCoeff.TabIndex = 4;
             this.textBoxGradationStonePavedCoeff.Text = "0.45";
+            this.textBoxGradationStonePavedCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxGradationStonePavedArea
             // 
@@ -219,6 +226,7 @@
             this.textBoxGradationStonePavedArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxGradationStonePavedArea.TabIndex = 11;
             this.textBoxGradationStonePavedArea.Text = "0";
+            this.textBoxGradationStonePavedArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label8
             // 
@@ -236,6 +244,7 @@
             this.textBoxGravelPavedCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxGravelPavedCoeff.TabIndex = 5;
             this.textBoxGravelPavedCoeff.Text = "0.40";
+            this.textBoxGravelPavedCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxGravelPavedArea
             // 
@@ -244,6 +253,7 @@
             this.textBoxGravelPavedArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxGravelPavedArea.TabIndex = 12;
             this.textBoxGravelPavedArea.Text = "0";
+            this.textBoxGravelPavedArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label9
             // 
@@ -261,6 +271,7 @@
             this.textBoxNonPavedCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxNonPavedCoeff.TabIndex = 6;
             this.textBoxNonPavedCoeff.Text = "0.30";
+            this.textBoxNonPavedCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxNonPavedArea
             // 
@@ -269,6 +280,7 @@
             this.textBoxNonPavedArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxNonPavedArea.TabIndex = 13;
             this.textBoxNonPavedArea.Text = "0";
+            this.textBoxNonPavedArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label10
             // 
@@ -286,6 +298,7 @@
             this.textBoxParkCoeff.Size = new System.Drawing.Size(87, 25);
             this.textBoxParkCoeff.TabIndex = 7;
             this.textBoxParkCoeff.Text = "0.15";
+            this.textBoxParkCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxParkArea
             // 
@@ -294,6 +307,7 @@
             this.textBoxParkArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxParkArea.TabIndex = 14;
             this.textBoxParkArea.Text = "0";
+            this.textBoxParkArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox1
             // 
@@ -322,6 +336,7 @@
             this.textBoxTotalArea.Name = "textBoxTotalArea";
             this.textBoxTotalArea.Size = new System.Drawing.Size(91, 25);
             this.textBoxTotalArea.TabIndex = 23;
+            this.textBoxTotalArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxWeightedRunoffCoefficient
             // 
@@ -329,6 +344,7 @@
             this.textBoxWeightedRunoffCoefficient.Name = "textBoxWeightedRunoffCoefficient";
             this.textBoxWeightedRunoffCoefficient.Size = new System.Drawing.Size(87, 25);
             this.textBoxWeightedRunoffCoefficient.TabIndex = 22;
+            this.textBoxWeightedRunoffCoefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label11
             // 

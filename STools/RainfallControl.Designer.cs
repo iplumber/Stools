@@ -53,7 +53,7 @@
             this.label_Q = new System.Windows.Forms.Label();
             this.labelDesignRunoffFlow = new System.Windows.Forms.Label();
             this.groupBoxDesignFlow = new System.Windows.Forms.GroupBox();
-            this.textBoxDesignRunoffFlow = new System.Windows.Forms.TextBox();
+            this.textBoxDesignTotalRunoffFlow = new System.Windows.Forms.TextBox();
             this.groupBoxDesignRainfallDensity = new System.Windows.Forms.GroupBox();
             this.textBoxDesignStormDensity = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -210,7 +210,7 @@
             // 
             this.labelDesignStormDensity.AutoSize = true;
             this.labelDesignStormDensity.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDesignStormDensity.Location = new System.Drawing.Point(374, 39);
+            this.labelDesignStormDensity.Location = new System.Drawing.Point(365, 39);
             this.labelDesignStormDensity.Name = "labelDesignStormDensity";
             this.labelDesignStormDensity.Size = new System.Drawing.Size(57, 20);
             this.labelDesignStormDensity.TabIndex = 46;
@@ -262,7 +262,7 @@
             this.buttonShowReturnPeriodValue.Location = new System.Drawing.Point(24, 78);
             this.buttonShowReturnPeriodValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonShowReturnPeriodValue.Name = "buttonShowReturnPeriodValue";
-            this.buttonShowReturnPeriodValue.Size = new System.Drawing.Size(200, 33);
+            this.buttonShowReturnPeriodValue.Size = new System.Drawing.Size(200, 30);
             this.buttonShowReturnPeriodValue.TabIndex = 17;
             this.buttonShowReturnPeriodValue.Text = "重现期 P（年）";
             this.buttonShowReturnPeriodValue.UseVisualStyleBackColor = true;
@@ -273,7 +273,7 @@
             this.buttonCalWeightedRunoffCoefficient.Location = new System.Drawing.Point(23, 158);
             this.buttonCalWeightedRunoffCoefficient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCalWeightedRunoffCoefficient.Name = "buttonCalWeightedRunoffCoefficient";
-            this.buttonCalWeightedRunoffCoefficient.Size = new System.Drawing.Size(200, 33);
+            this.buttonCalWeightedRunoffCoefficient.Size = new System.Drawing.Size(200, 30);
             this.buttonCalWeightedRunoffCoefficient.TabIndex = 19;
             this.buttonCalWeightedRunoffCoefficient.Text = "综合径流系数ψ";
             this.buttonCalWeightedRunoffCoefficient.UseVisualStyleBackColor = true;
@@ -313,15 +313,15 @@
             // 
             this.labelDesignRunoffFlow.AutoSize = true;
             this.labelDesignRunoffFlow.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDesignRunoffFlow.Location = new System.Drawing.Point(375, 37);
+            this.labelDesignRunoffFlow.Location = new System.Drawing.Point(366, 37);
             this.labelDesignRunoffFlow.Name = "labelDesignRunoffFlow";
-            this.labelDesignRunoffFlow.Size = new System.Drawing.Size(38, 20);
+            this.labelDesignRunoffFlow.Size = new System.Drawing.Size(62, 20);
             this.labelDesignRunoffFlow.TabIndex = 33;
-            this.labelDesignRunoffFlow.Text = "(L/s)";
+            this.labelDesignRunoffFlow.Text = "(m^3/s)";
             // 
             // groupBoxDesignFlow
             // 
-            this.groupBoxDesignFlow.Controls.Add(this.textBoxDesignRunoffFlow);
+            this.groupBoxDesignFlow.Controls.Add(this.textBoxDesignTotalRunoffFlow);
             this.groupBoxDesignFlow.Controls.Add(this.label_Q);
             this.groupBoxDesignFlow.Controls.Add(this.labelDesignRunoffFlow);
             this.groupBoxDesignFlow.Location = new System.Drawing.Point(300, 318);
@@ -331,17 +331,17 @@
             this.groupBoxDesignFlow.Size = new System.Drawing.Size(433, 81);
             this.groupBoxDesignFlow.TabIndex = 30;
             this.groupBoxDesignFlow.TabStop = false;
-            this.groupBoxDesignFlow.Text = "设计总流量";
+            this.groupBoxDesignFlow.Text = "设计总径流量";
             // 
             // textBoxDesignRunoffFlow
             // 
-            this.textBoxDesignRunoffFlow.Location = new System.Drawing.Point(300, 34);
-            this.textBoxDesignRunoffFlow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxDesignRunoffFlow.Name = "textBoxDesignRunoffFlow";
-            this.textBoxDesignRunoffFlow.ReadOnly = true;
-            this.textBoxDesignRunoffFlow.Size = new System.Drawing.Size(67, 27);
-            this.textBoxDesignRunoffFlow.TabIndex = 32;
-            this.textBoxDesignRunoffFlow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxDesignTotalRunoffFlow.Location = new System.Drawing.Point(284, 34);
+            this.textBoxDesignTotalRunoffFlow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxDesignTotalRunoffFlow.Name = "textBoxDesignRunoffFlow";
+            this.textBoxDesignTotalRunoffFlow.ReadOnly = true;
+            this.textBoxDesignTotalRunoffFlow.Size = new System.Drawing.Size(74, 27);
+            this.textBoxDesignTotalRunoffFlow.TabIndex = 32;
+            this.textBoxDesignTotalRunoffFlow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBoxDesignRainfallDensity
             // 
@@ -364,11 +364,11 @@
             // 
             // textBoxDesignStormDensity
             // 
-            this.textBoxDesignStormDensity.Location = new System.Drawing.Point(300, 36);
+            this.textBoxDesignStormDensity.Location = new System.Drawing.Point(284, 36);
             this.textBoxDesignStormDensity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDesignStormDensity.Name = "textBoxDesignStormDensity";
             this.textBoxDesignStormDensity.ReadOnly = true;
-            this.textBoxDesignStormDensity.Size = new System.Drawing.Size(67, 27);
+            this.textBoxDesignStormDensity.Size = new System.Drawing.Size(74, 27);
             this.textBoxDesignStormDensity.TabIndex = 22;
             this.textBoxDesignStormDensity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -393,20 +393,22 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(23, 118);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 33);
+            this.button3.Size = new System.Drawing.Size(200, 30);
             this.button3.TabIndex = 18;
             this.button3.Text = "汇水面积 F（平方米）";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.Location = new System.Drawing.Point(24, 38);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 33);
+            this.button1.Size = new System.Drawing.Size(200, 30);
             this.button1.TabIndex = 16;
             this.button1.Text = "雨水流行时间 t（min）";
             this.button1.UseVisualStyleBackColor = true;
@@ -617,7 +619,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBoxDesignStormDensity;
-        private System.Windows.Forms.TextBox textBoxDesignRunoffFlow;
+        private System.Windows.Forms.TextBox textBoxDesignTotalRunoffFlow;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;

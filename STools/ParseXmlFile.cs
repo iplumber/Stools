@@ -15,7 +15,6 @@ namespace STools
 
         public ParseXmlFile()
         {
-
             document = new XmlDocument();
             string dir = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
             document.Load(Path.Combine(dir, @".\省市区暴雨公式.xml"));

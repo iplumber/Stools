@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingReturnPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuildingReturnPeriod.Designer.cs">
+      <DependentUpon>BuildingReturnPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalculatePipe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MunicipalPipeReturnPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MunicipalPipeReturnPeriod.Designer.cs">
+      <DependentUpon>MunicipalPipeReturnPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="ParseXmlFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,11 +90,11 @@
     <Compile Include="RainfallControl.Designer.cs">
       <DependentUpon>RainfallControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="RetrunPeriod.cs">
+    <Compile Include="ReturnPeriod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RetrunPeriod.Designer.cs">
-      <DependentUpon>RetrunPeriod.cs</DependentUpon>
+    <Compile Include="ReturnPeriod.Designer.cs">
+      <DependentUpon>ReturnPeriod.cs</DependentUpon>
     </Compile>
     <Compile Include="RunoffCoefficient .cs">
       <SubType>Form</SubType>
@@ -90,17 +102,29 @@
     <Compile Include="RunoffCoefficient .Designer.cs">
       <DependentUpon>RunoffCoefficient .cs</DependentUpon>
     </Compile>
+    <Compile Include="UrbanFloodReturnPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UrbanFloodReturnPeriod.Designer.cs">
+      <DependentUpon>UrbanFloodReturnPeriod.cs</DependentUpon>
+    </Compile>
     <Compile Include="WaterSupplyControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="WaterSupplyControl.Designer.cs">
       <DependentUpon>WaterSupplyControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BuildingReturnPeriod.resx">
+      <DependentUpon>BuildingReturnPeriod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CalculatePipe.resx">
       <DependentUpon>CalculatePipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MunicipalPipeReturnPeriod.resx">
+      <DependentUpon>MunicipalPipeReturnPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,11 +138,14 @@
     <EmbeddedResource Include="RainfallControl.resx">
       <DependentUpon>RainfallControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RetrunPeriod.resx">
-      <DependentUpon>RetrunPeriod.cs</DependentUpon>
+    <EmbeddedResource Include="ReturnPeriod.resx">
+      <DependentUpon>ReturnPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RunoffCoefficient .resx">
       <DependentUpon>RunoffCoefficient .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UrbanFloodReturnPeriod.resx">
+      <DependentUpon>UrbanFloodReturnPeriod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaterSupplyControl.resx">
       <DependentUpon>WaterSupplyControl.cs</DependentUpon>
