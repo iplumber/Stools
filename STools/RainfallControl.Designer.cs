@@ -61,18 +61,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxRoughness = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxPipeMaterial = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSlope = new System.Windows.Forms.TextBox();
+            this.textBoxVelocity = new System.Windows.Forms.TextBox();
+            this.textBoxDiameter = new System.Windows.Forms.TextBox();
+            this.textBoxConveyanceCapactiy = new System.Windows.Forms.TextBox();
+            this.textBoxTotalFlow = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelConveyanceCapactiy = new System.Windows.Forms.Label();
+            this.labelTotalFlow = new System.Windows.Forms.Label();
             this.buttonCalculatePipe = new System.Windows.Forms.Button();
             this.groupBoxDesignFlow.SuspendLayout();
             this.groupBoxDesignRainfallDensity.SuspendLayout();
@@ -248,10 +250,10 @@
             // 
             // buttonCalculateDesignStormIntensity
             // 
-            this.buttonCalculateDesignStormIntensity.Location = new System.Drawing.Point(518, 416);
+            this.buttonCalculateDesignStormIntensity.Location = new System.Drawing.Point(566, 416);
             this.buttonCalculateDesignStormIntensity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCalculateDesignStormIntensity.Name = "buttonCalculateDesignStormIntensity";
-            this.buttonCalculateDesignStormIntensity.Size = new System.Drawing.Size(215, 65);
+            this.buttonCalculateDesignStormIntensity.Size = new System.Drawing.Size(167, 65);
             this.buttonCalculateDesignStormIntensity.TabIndex = 34;
             this.buttonCalculateDesignStormIntensity.Text = "计算总流量";
             this.buttonCalculateDesignStormIntensity.UseVisualStyleBackColor = true;
@@ -333,11 +335,11 @@
             this.groupBoxDesignFlow.TabStop = false;
             this.groupBoxDesignFlow.Text = "设计总径流量";
             // 
-            // textBoxDesignRunoffFlow
+            // textBoxDesignTotalRunoffFlow
             // 
             this.textBoxDesignTotalRunoffFlow.Location = new System.Drawing.Point(284, 34);
             this.textBoxDesignTotalRunoffFlow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBoxDesignTotalRunoffFlow.Name = "textBoxDesignRunoffFlow";
+            this.textBoxDesignTotalRunoffFlow.Name = "textBoxDesignTotalRunoffFlow";
             this.textBoxDesignTotalRunoffFlow.ReadOnly = true;
             this.textBoxDesignTotalRunoffFlow.Size = new System.Drawing.Size(74, 27);
             this.textBoxDesignTotalRunoffFlow.TabIndex = 32;
@@ -434,31 +436,51 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.textBoxRoughness);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.textBoxPipeMaterial);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.textBoxSlope);
+            this.groupBox3.Controls.Add(this.textBoxVelocity);
+            this.groupBox3.Controls.Add(this.textBoxDiameter);
+            this.groupBox3.Controls.Add(this.textBoxConveyanceCapactiy);
+            this.groupBox3.Controls.Add(this.textBoxTotalFlow);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.labelConveyanceCapactiy);
+            this.groupBox3.Controls.Add(this.labelTotalFlow);
             this.groupBox3.Location = new System.Drawing.Point(11, 406);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(493, 159);
+            this.groupBox3.Size = new System.Drawing.Size(542, 159);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "设计管段结果";
             // 
-            // textBox6
+            // textBoxRoughness
             // 
-            this.textBox6.Location = new System.Drawing.Point(166, 51);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(314, 27);
-            this.textBox6.TabIndex = 11;
+            this.textBoxRoughness.Location = new System.Drawing.Point(448, 116);
+            this.textBoxRoughness.Name = "textBoxRoughness";
+            this.textBoxRoughness.ReadOnly = true;
+            this.textBoxRoughness.Size = new System.Drawing.Size(73, 27);
+            this.textBoxRoughness.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(448, 93);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 20);
+            this.label13.TabIndex = 12;
+            this.label13.Text = "粗糙系数";
+            // 
+            // textBoxPipeMaterial
+            // 
+            this.textBoxPipeMaterial.Location = new System.Drawing.Point(166, 51);
+            this.textBoxPipeMaterial.Name = "textBoxPipeMaterial";
+            this.textBoxPipeMaterial.ReadOnly = true;
+            this.textBoxPipeMaterial.Size = new System.Drawing.Size(355, 27);
+            this.textBoxPipeMaterial.TabIndex = 11;
             // 
             // label12
             // 
@@ -469,45 +491,50 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "管道材料";
             // 
-            // textBox5
+            // textBoxSlope
             // 
-            this.textBox5.Location = new System.Drawing.Point(390, 117);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(90, 27);
-            this.textBox5.TabIndex = 9;
+            this.textBoxSlope.Location = new System.Drawing.Point(354, 117);
+            this.textBoxSlope.Name = "textBoxSlope";
+            this.textBoxSlope.ReadOnly = true;
+            this.textBoxSlope.Size = new System.Drawing.Size(73, 27);
+            this.textBoxSlope.TabIndex = 9;
             // 
-            // textBox4
+            // textBoxVelocity
             // 
-            this.textBox4.Location = new System.Drawing.Point(278, 117);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(90, 27);
-            this.textBox4.TabIndex = 8;
+            this.textBoxVelocity.Location = new System.Drawing.Point(260, 117);
+            this.textBoxVelocity.Name = "textBoxVelocity";
+            this.textBoxVelocity.ReadOnly = true;
+            this.textBoxVelocity.Size = new System.Drawing.Size(73, 27);
+            this.textBoxVelocity.TabIndex = 8;
             // 
-            // textBox3
+            // textBoxDiameter
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 27);
-            this.textBox3.TabIndex = 7;
+            this.textBoxDiameter.Location = new System.Drawing.Point(166, 117);
+            this.textBoxDiameter.Name = "textBoxDiameter";
+            this.textBoxDiameter.ReadOnly = true;
+            this.textBoxDiameter.Size = new System.Drawing.Size(73, 27);
+            this.textBoxDiameter.TabIndex = 7;
             // 
-            // textBox2
+            // textBoxConveyanceCapactiy
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 117);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 27);
-            this.textBox2.TabIndex = 6;
+            this.textBoxConveyanceCapactiy.Location = new System.Drawing.Point(9, 117);
+            this.textBoxConveyanceCapactiy.Name = "textBoxConveyanceCapactiy";
+            this.textBoxConveyanceCapactiy.ReadOnly = true;
+            this.textBoxConveyanceCapactiy.Size = new System.Drawing.Size(130, 27);
+            this.textBoxConveyanceCapactiy.TabIndex = 6;
             // 
-            // textBox1
+            // textBoxTotalFlow
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 27);
-            this.textBox1.TabIndex = 5;
+            this.textBoxTotalFlow.Location = new System.Drawing.Point(9, 51);
+            this.textBoxTotalFlow.Name = "textBoxTotalFlow";
+            this.textBoxTotalFlow.ReadOnly = true;
+            this.textBoxTotalFlow.Size = new System.Drawing.Size(130, 27);
+            this.textBoxTotalFlow.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(390, 93);
+            this.label11.Location = new System.Drawing.Point(354, 93);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 20);
             this.label11.TabIndex = 4;
@@ -516,7 +543,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(278, 93);
+            this.label10.Location = new System.Drawing.Point(260, 93);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 20);
             this.label10.TabIndex = 3;
@@ -531,29 +558,29 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "管径(mm)";
             // 
-            // label7
+            // labelConveyanceCapactiy
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 93);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(134, 20);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "管道过流能力(L/s)";
+            this.labelConveyanceCapactiy.AutoSize = true;
+            this.labelConveyanceCapactiy.Location = new System.Drawing.Point(9, 93);
+            this.labelConveyanceCapactiy.Name = "labelConveyanceCapactiy";
+            this.labelConveyanceCapactiy.Size = new System.Drawing.Size(134, 20);
+            this.labelConveyanceCapactiy.TabIndex = 1;
+            this.labelConveyanceCapactiy.Text = "管道过流能力(L/s)";
             // 
-            // label5
+            // labelTotalFlow
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "设计总流量(L/s)";
+            this.labelTotalFlow.AutoSize = true;
+            this.labelTotalFlow.Location = new System.Drawing.Point(9, 27);
+            this.labelTotalFlow.Name = "labelTotalFlow";
+            this.labelTotalFlow.Size = new System.Drawing.Size(118, 20);
+            this.labelTotalFlow.TabIndex = 0;
+            this.labelTotalFlow.Text = "设计总流量(L/s)";
             // 
             // buttonCalculatePipe
             // 
-            this.buttonCalculatePipe.Location = new System.Drawing.Point(518, 499);
+            this.buttonCalculatePipe.Location = new System.Drawing.Point(566, 499);
             this.buttonCalculatePipe.Name = "buttonCalculatePipe";
-            this.buttonCalculatePipe.Size = new System.Drawing.Size(213, 66);
+            this.buttonCalculatePipe.Size = new System.Drawing.Size(165, 66);
             this.buttonCalculatePipe.TabIndex = 36;
             this.buttonCalculatePipe.Text = "计算管段参数";
             this.buttonCalculatePipe.UseVisualStyleBackColor = true;
@@ -621,18 +648,20 @@
         private System.Windows.Forms.TextBox textBoxDesignStormDensity;
         private System.Windows.Forms.TextBox textBoxDesignTotalRunoffFlow;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelConveyanceCapactiy;
+        private System.Windows.Forms.Label labelTotalFlow;
+        private System.Windows.Forms.TextBox textBoxSlope;
+        private System.Windows.Forms.TextBox textBoxVelocity;
+        private System.Windows.Forms.TextBox textBoxDiameter;
+        private System.Windows.Forms.TextBox textBoxConveyanceCapactiy;
+        private System.Windows.Forms.TextBox textBoxTotalFlow;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxPipeMaterial;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button buttonCalculatePipe;
+        private System.Windows.Forms.TextBox textBoxRoughness;
+        private System.Windows.Forms.Label label13;
     }
 }

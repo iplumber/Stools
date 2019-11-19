@@ -85,6 +85,7 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(372, 456);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 30);
@@ -359,6 +360,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(482, 503);
             this.Controls.Add(this.textBoxParkArea);
             this.Controls.Add(this.textBoxNonPavedArea);
@@ -389,6 +391,7 @@
             this.Controls.Add(this.buttonApply);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "RunoffCoefficient";
             this.Text = "径流系数表";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RunoffCoefficient_FormClosing);

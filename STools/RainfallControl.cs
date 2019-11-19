@@ -236,6 +236,8 @@ namespace STools
                 {
                     double designTotalRunoffFlow_LPerSecond = designTotalRunoffFlow_M3PerSecond * 1000;
                     labelDesignRunoffFlow.Text = "(L/s)";
+                    labelTotalFlow.Text = "设计总流量(L/s)";
+                    labelConveyanceCapactiy.Text = "管道过流能力(L/s)";
                     label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
                                                 + textBoxWeightedRunoffCoefficient.Text + " × "
                                                 + textBoxTotalArea.Text + " / 10000 =";
@@ -244,6 +246,8 @@ namespace STools
                 else
                 {
                     labelDesignRunoffFlow.Text = "(m^3/s)";
+                    labelTotalFlow.Text = "设计总流量(m^3/s)";
+                    labelConveyanceCapactiy.Text = "管道过流能力(m^3/s)";
                     label_Q.Text = "Q = qψF = " + Convert.ToString(Math.Round(designStormDensity, 3)) + " × "
                                                 + textBoxWeightedRunoffCoefficient.Text + " × "
                                                 + textBoxTotalArea.Text + " /10000/1000=";
@@ -289,7 +293,7 @@ namespace STools
             }
         }
 
-        ReturnPeriod formReturnPeriod = new ReturnPeriod();
+        formReturnPeriod formReturnPeriod = new formReturnPeriod();
         private void buttonShowReturnPeriodValue_Click(object sender, EventArgs e)
         {
             formReturnPeriod.ParentDialog = this;
@@ -318,14 +322,31 @@ namespace STools
         {
             textBoxWeightedRunoffCoefficient.Text = Math.Round(_weightedRunoffCoefficient, 3).ToString();
         }
+
+        public void SetPipe(Pipe _pipe)
+        {
+            textBoxTotalFlow.Text = textBoxDesignTotalRunoffFlow.Text;
+            textBoxConveyanceCapactiy.Text = _pipe.conveyanceCapactiy.ToString();
+            textBoxDiameter.Text = _pipe.diameter.ToString();
+            textBoxVelocity.Text = _pipe.velocity.ToString();
+            textBoxSlope.Text = _pipe.slope.ToString();
+            textBoxRoughness.Text = _pipe.roughness.ToString();
+            textBoxPipeMaterial.Text = _pipe.material;
+        }
+
+        public void SetReturnPeriod(double _period)
+        {
+            textBoxReturnPeriod.Text = _period.ToString();
+        }
         
-        RunoffCoefficient formRunoffCoefficient = new RunoffCoefficient();
+        RunoffCoefficient formRunoffCoefficient;
         private void buttonCalWeightedRunoffCoefficient_Click(object sender, EventArgs e)
         {
-            //bool isOpened = false;
+            if (formRunoffCoefficient == null)   formRunoffCoefficient = new RunoffCoefficient();
             formRunoffCoefficient.ParentDialog = this;
             formRunoffCoefficient.Show();
 
+            //bool isOpened = false;
             //textBoxWeightedRunoffCoefficient.Text = Math.Round(formRunoffCoefficient.weightedRunoffCoefficient, 3).ToString();
             //textBoxTotalArea.Text = formRunoffCoefficient.totalArea.ToString();
 
@@ -343,13 +364,13 @@ namespace STools
             //}
         }
 
-
+        CalculatePipe formCalculatePipe;
         private void buttonCalculatePipe_Click(object sender, EventArgs e)
         {
-            CalculatePipe formCalculatePipe = new CalculatePipe();
+            if(formCalculatePipe == null)    formCalculatePipe = new CalculatePipe();
             formCalculatePipe.ParentDialog = this;
             formCalculatePipe.SetDesignRunoffFlowAndUnit(textBoxDesignTotalRunoffFlow.Text, labelDesignRunoffFlow.Text);
-            formCalculatePipe.theFirstTimeCalculateDiameterAndSlope();
+            formCalculatePipe.TheFirstTimeCalculateDiameterAndSlope();
             formCalculatePipe.Show();
         }
     }

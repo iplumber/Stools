@@ -24,8 +24,8 @@ namespace STools
             inputMaterial = "球磨铸铁管";
 
             radioButtonDiameter.Checked = true;
-            listBoxRoughness.SelectedIndex = 0;
             listBoxPipeMaterial.SelectedIndex = 0;
+            listBoxRoughness.SelectedIndex = 0;
 
             listBoxDiameter.SelectedIndex = 0;
             listBoxVelocity.SelectedIndex = 9;
@@ -88,6 +88,7 @@ namespace STools
         private void listBoxPipeMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBoxRoughness.SelectedItem = 0;
+            inputMaterial = listBoxPipeMaterial.SelectedItem.ToString();
             CalculateDiameterAndVelocityAndSlope();
         }
 
@@ -112,8 +113,32 @@ namespace STools
             listBoxSlope.Enabled = radioButtonSlope.Checked;
         }
 
+        private void buttonApply_Click(object sender, EventArgs e)
+        {
+            Pipe pipe = new Pipe();
+
+            pipe.conveyanceCapactiy = Convert.ToDouble(textBoxConveyanceCapactiy.Text);
+            pipe.diameter = Convert.ToDouble(textBoxDiameter.Text);
+            pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
+            pipe.slope = Convert.ToDouble(textBoxSlope.Text);
+            pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
+            pipe.material = textBoxPipeMaterial.Text;
+
+            ParentDialog.SetPipe(pipe);
+        }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            Pipe pipe = new Pipe();
+
+            pipe.conveyanceCapactiy = Convert.ToDouble(textBoxConveyanceCapactiy.Text);
+            pipe.diameter = Convert.ToDouble(textBoxDiameter.Text);
+            pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
+            pipe.slope = Convert.ToDouble(textBoxSlope.Text);
+            pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
+            pipe.material = textBoxPipeMaterial.Text;
+
+            ParentDialog.SetPipe(pipe);
             this.Close();
         }
 
@@ -142,32 +167,61 @@ namespace STools
             if (radioButtonDiameter.Checked)
             {
                 pipe.diameter = inputDiameter / 1000;
-                pipe.velocity = 4 * pipe.designTotalRunoffFlow_M3PerSecond / Math.PI / pipe.diameter / pipe.diameter;
-                pipe.slope = Math.Pow(pipe.velocity * pipe.roughness / Math.Pow(0.25 * pipe.diameter, 2.0 / 3),2);
+                pipe.velocity = Calculate_v_By_Q_D(pipe.designTotalRunoffFlow_M3PerSecond, pipe.diameter);
+                pipe.slope = Calculate_i_By_n_v_D(pipe.roughness, pipe.velocity, pipe.diameter);
             }
             else if (radioButtonVelocity.Checked)
             {
                 pipe.velocity = inputVelocity;
-                pipe.diameter = Math.Sqrt(4 * pipe.designTotalRunoffFlow_M3PerSecond / Math.PI / pipe.velocity);
+                pipe.diameter = Calculate_D_By_Q_v(pipe.designTotalRunoffFlow_M3PerSecond, pipe.velocity);
                 pipe.diameter = CeilingDiameter(pipe.diameter);
-                pipe.slope = Math.Pow(pipe.velocity * pipe.roughness / Math.Pow(0.25 * pipe.diameter, 2.0 / 3), 2);
+                pipe.slope = Calculate_i_By_n_v_D(pipe.roughness, pipe.velocity, pipe.diameter);
             }
             else if (radioButtonSlope.Checked)
             {
                 pipe.slope = inputSlope / 1000;
-                pipe.diameter = Math.Pow(4 * pipe.roughness * pipe.designTotalRunoffFlow_M3PerSecond / 
-                                         Math.Pow(0.25,2.0/3.0) / Math.Sqrt(pipe.slope) / Math.PI, 3.0/8.0);
+                pipe.diameter = Calculate_D_By_n_Q_i(pipe.roughness, pipe.designTotalRunoffFlow_M3PerSecond, pipe.slope);
                 pipe.diameter = CeilingDiameter(pipe.diameter);
-                pipe.velocity = 1.0 / pipe.roughness * Math.Pow(0.25 * pipe.diameter, 2.0 / 3.0) * Math.Sqrt(pipe.slope);
+                pipe.velocity = Calculate_v_By_n_D_i(pipe.roughness, pipe.diameter, pipe.slope);
             }
+            textBoxRoughness.Text = pipe.roughness.ToString();
             textBoxVelocity.Text = Convert.ToString(Math.Round(pipe.velocity, 2));
             textBoxSlope.Text = Convert.ToString(MathCeiling(pipe.slope * 1000, 1));
             textBoxDiameter.Text = Convert.ToString(Math.Round(pipe.diameter * 1000, 2));
-            textBoxRoughness.Text = inputRoughness.ToString();
+            textBoxPipeMaterial.Text = inputMaterial;
             textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe),2));
         }
 
-        public void theFirstTimeCalculateDiameterAndSlope()
+        public double Calculate_v_By_Q_D(double flow, double diameter)
+        {
+            double velocity = 4 * flow / Math.PI / diameter / diameter; 
+            return velocity;
+        }
+        public double Calculate_v_By_n_D_i(double roughness, double diameter, double slope)
+        {
+            double velocity = 1.0 / roughness * Math.Pow(0.25 * diameter, 2.0 / 3.0) * Math.Sqrt(slope);
+            return velocity;
+        }
+
+        public double Calculate_D_By_Q_v(double flow, double velocity)
+        {
+            double diameter = Math.Sqrt(4 * flow / Math.PI / velocity); ;
+            return diameter;
+        }
+
+        public double Calculate_D_By_n_Q_i(double roughness, double flow, double slope)
+        {
+            double diameter = Math.Pow(4 * roughness * flow / Math.Pow(0.25, 2.0 / 3.0) / Math.Sqrt(slope) / Math.PI, 3.0 / 8.0);
+            return diameter;
+        }
+
+        public double Calculate_i_By_n_v_D(double roughness, double velocity, double diameter)
+        {
+            double slope = Math.Pow(velocity * roughness / Math.Pow(0.25 * diameter, 2.0 / 3), 2);
+            return slope;
+        }
+
+        public void TheFirstTimeCalculateDiameterAndSlope()
         {
             Pipe pipe = new Pipe();
             textBoxPipeMaterial.Text = inputMaterial;
@@ -179,15 +233,15 @@ namespace STools
                 pipe.designTotalRunoffFlow_M3PerSecond = totalFlow / 1000;
             }
             pipe.velocity = 1.0;
-            pipe.diameter = Math.Sqrt(4 * pipe.designTotalRunoffFlow_M3PerSecond / Math.PI / pipe.velocity);
+            pipe.diameter = Calculate_D_By_Q_v(pipe.designTotalRunoffFlow_M3PerSecond, pipe.velocity);
             pipe.diameter = CeilingDiameter(pipe.diameter);
-            pipe.velocity = 4 * pipe.designTotalRunoffFlow_M3PerSecond / Math.PI / pipe.diameter / pipe.diameter;
-            pipe.slope = Math.Pow(pipe.velocity * pipe.roughness / Math.Pow(0.25 * pipe.diameter, 2.0 / 3), 2);
+            pipe.velocity = Calculate_v_By_Q_D(pipe.designTotalRunoffFlow_M3PerSecond, pipe.diameter);
+            pipe.slope = Calculate_i_By_n_v_D(pipe.roughness, pipe.velocity, pipe.diameter);
 
+            textBoxRoughness.Text = pipe.roughness.ToString();
             textBoxVelocity.Text = Convert.ToString(Math.Round(pipe.velocity, 2));
             textBoxSlope.Text = Convert.ToString(MathCeiling(pipe.slope * 1000, 1));
             textBoxDiameter.Text = Convert.ToString(Math.Round(pipe.diameter * 1000, 2));
-            textBoxRoughness.Text = inputRoughness.ToString();
             textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
         }
 
@@ -195,9 +249,12 @@ namespace STools
         {
             if (diameter <= 0) return diameter;
             int diameterIndex = 0;
-            while (diameter > Convert.ToDouble(listBoxDiameter.Items[diameterIndex].ToString()) / 1000)
+            double diameterCeiling = Convert.ToDouble(listBoxDiameter.Items[diameterIndex].ToString()) / 1000;
+            while ((diameter > diameterCeiling)
+                   && (diameterIndex < listBoxDiameter.Items.Count - 1 ))
             {
                 diameterIndex++;
+                diameterCeiling = Convert.ToDouble(listBoxDiameter.Items[diameterIndex].ToString()) / 1000;
             }
             listBoxDiameter.SelectedIndex = diameterIndex;
             diameter = Convert.ToDouble(listBoxDiameter.Items[diameterIndex].ToString()) / 1000;
@@ -227,15 +284,16 @@ namespace STools
             //try
             //{
             //    Pipe pipe = new Pipe();
-            //    inputDiameter = Convert.ToDouble(textBoxDiameter.Text) / 1000;
-            //    pipe.diameter = inputDiameter;
-            //    pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
+            //    pipe.diameter = Convert.ToDouble(textBoxDiameter.Text) / 1000;
+            //    //pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
             //    pipe.slope = Convert.ToDouble(textBoxSlope.Text) / 1000;
             //    pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
-            //    if (inputDiameter < 0)
+            //    if (pipe.diameter < 0)
             //    {
             //        MessageBox.Show("请输入正确的管径。");
             //    }
+            //    pipe.velocity = 4 * pipe.designTotalRunoffFlow_M3PerSecond / Math.PI / pipe.diameter / pipe.diameter;
+            //    //textBoxVelocity.Text = pipe.velocity.ToString();
             //    textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
             //}
             //catch (Exception err)
@@ -246,27 +304,54 @@ namespace STools
 
         private void textBoxVelocity_TextChanged(object sender, EventArgs e)
         {
-            //Pipe pipe = new Pipe();
-            //pipe.diameter = Convert.ToDouble(textBoxDiameter.Text) / 1000;
-            //pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
-            //pipe.slope = Convert.ToDouble(textBoxSlope.Text) / 1000;
-            //pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
-            //if (pipe.velocity < 0)
+            //if (string.IsNullOrWhiteSpace(textBoxVelocity.Text)) return;
+            //try
             //{
-            //    MessageBox.Show("请输入正确的管径。");
+            //    Pipe pipe = new Pipe();
+            //    pipe.diameter = Convert.ToDouble(textBoxDiameter.Text) / 1000;
+            //    pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
+            //    pipe.slope = Convert.ToDouble(textBoxSlope.Text) / 1000;
+            //    pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
+            //    if (pipe.velocity < 0)
+            //    {
+            //        MessageBox.Show("请输入正确的流速。");
+            //    }
+            //    textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
             //}
-            //textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show(err.Message);  //目前这个错误信息未显示是否地面流行时间还是重现期，也没给出输入数据的范围。
+            //}
         }
 
         private void textBoxSlope_TextChanged(object sender, EventArgs e)
         {
-
+            //if (string.IsNullOrWhiteSpace(textBoxVelocity.Text)) return;
+            //try
+            //{
+            //    Pipe pipe = new Pipe();
+            //    pipe.diameter = Convert.ToDouble(textBoxDiameter.Text) / 1000;
+            //    pipe.velocity = Convert.ToDouble(textBoxVelocity.Text);
+            //    pipe.slope = Convert.ToDouble(textBoxSlope.Text) / 1000;
+            //    pipe.roughness = Convert.ToDouble(textBoxRoughness.Text);
+            //    if (pipe.velocity < 0)
+            //    {
+            //        MessageBox.Show("请输入正确的流速。");
+            //    }
+            //    textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
+            //}
+            //catch (Exception err)
+            //{
+            //    MessageBox.Show(err.Message);  //目前这个错误信息未显示是否地面流行时间还是重现期，也没给出输入数据的范围。
+            //}
         }
 
         private void textBoxRoughness_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+
     }
 
     public class Pipe
