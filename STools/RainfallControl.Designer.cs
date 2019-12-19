@@ -250,10 +250,10 @@
             // 
             // buttonCalculateDesignStormIntensity
             // 
-            this.buttonCalculateDesignStormIntensity.Location = new System.Drawing.Point(566, 416);
+            this.buttonCalculateDesignStormIntensity.Location = new System.Drawing.Point(11, 409);
             this.buttonCalculateDesignStormIntensity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCalculateDesignStormIntensity.Name = "buttonCalculateDesignStormIntensity";
-            this.buttonCalculateDesignStormIntensity.Size = new System.Drawing.Size(167, 65);
+            this.buttonCalculateDesignStormIntensity.Size = new System.Drawing.Size(722, 40);
             this.buttonCalculateDesignStormIntensity.TabIndex = 34;
             this.buttonCalculateDesignStormIntensity.Text = "计算总流量";
             this.buttonCalculateDesignStormIntensity.UseVisualStyleBackColor = true;
@@ -450,25 +450,25 @@
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.labelConveyanceCapactiy);
             this.groupBox3.Controls.Add(this.labelTotalFlow);
-            this.groupBox3.Location = new System.Drawing.Point(11, 406);
+            this.groupBox3.Location = new System.Drawing.Point(11, 455);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(542, 159);
+            this.groupBox3.Size = new System.Drawing.Size(722, 159);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "设计管段结果";
             // 
             // textBoxRoughness
             // 
-            this.textBoxRoughness.Location = new System.Drawing.Point(448, 116);
+            this.textBoxRoughness.Location = new System.Drawing.Point(615, 117);
             this.textBoxRoughness.Name = "textBoxRoughness";
             this.textBoxRoughness.ReadOnly = true;
-            this.textBoxRoughness.Size = new System.Drawing.Size(73, 27);
+            this.textBoxRoughness.Size = new System.Drawing.Size(96, 27);
             this.textBoxRoughness.TabIndex = 13;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(448, 93);
+            this.label13.Location = new System.Drawing.Point(615, 94);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(73, 20);
             this.label13.TabIndex = 12;
@@ -476,16 +476,16 @@
             // 
             // textBoxPipeMaterial
             // 
-            this.textBoxPipeMaterial.Location = new System.Drawing.Point(166, 51);
+            this.textBoxPipeMaterial.Location = new System.Drawing.Point(228, 52);
             this.textBoxPipeMaterial.Name = "textBoxPipeMaterial";
             this.textBoxPipeMaterial.ReadOnly = true;
-            this.textBoxPipeMaterial.Size = new System.Drawing.Size(355, 27);
+            this.textBoxPipeMaterial.Size = new System.Drawing.Size(483, 27);
             this.textBoxPipeMaterial.TabIndex = 11;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(166, 27);
+            this.label12.Location = new System.Drawing.Point(228, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(73, 20);
             this.label12.TabIndex = 10;
@@ -493,26 +493,26 @@
             // 
             // textBoxSlope
             // 
-            this.textBoxSlope.Location = new System.Drawing.Point(354, 117);
+            this.textBoxSlope.Location = new System.Drawing.Point(486, 117);
             this.textBoxSlope.Name = "textBoxSlope";
             this.textBoxSlope.ReadOnly = true;
-            this.textBoxSlope.Size = new System.Drawing.Size(73, 27);
+            this.textBoxSlope.Size = new System.Drawing.Size(96, 27);
             this.textBoxSlope.TabIndex = 9;
             // 
             // textBoxVelocity
             // 
-            this.textBoxVelocity.Location = new System.Drawing.Point(260, 117);
+            this.textBoxVelocity.Location = new System.Drawing.Point(357, 117);
             this.textBoxVelocity.Name = "textBoxVelocity";
             this.textBoxVelocity.ReadOnly = true;
-            this.textBoxVelocity.Size = new System.Drawing.Size(73, 27);
+            this.textBoxVelocity.Size = new System.Drawing.Size(96, 27);
             this.textBoxVelocity.TabIndex = 8;
             // 
             // textBoxDiameter
             // 
-            this.textBoxDiameter.Location = new System.Drawing.Point(166, 117);
+            this.textBoxDiameter.Location = new System.Drawing.Point(228, 117);
             this.textBoxDiameter.Name = "textBoxDiameter";
             this.textBoxDiameter.ReadOnly = true;
-            this.textBoxDiameter.Size = new System.Drawing.Size(73, 27);
+            this.textBoxDiameter.Size = new System.Drawing.Size(96, 27);
             this.textBoxDiameter.TabIndex = 7;
             // 
             // textBoxConveyanceCapactiy
@@ -520,7 +520,7 @@
             this.textBoxConveyanceCapactiy.Location = new System.Drawing.Point(9, 117);
             this.textBoxConveyanceCapactiy.Name = "textBoxConveyanceCapactiy";
             this.textBoxConveyanceCapactiy.ReadOnly = true;
-            this.textBoxConveyanceCapactiy.Size = new System.Drawing.Size(130, 27);
+            this.textBoxConveyanceCapactiy.Size = new System.Drawing.Size(197, 27);
             this.textBoxConveyanceCapactiy.TabIndex = 6;
             // 
             // textBoxTotalFlow
@@ -528,13 +528,13 @@
             this.textBoxTotalFlow.Location = new System.Drawing.Point(9, 51);
             this.textBoxTotalFlow.Name = "textBoxTotalFlow";
             this.textBoxTotalFlow.ReadOnly = true;
-            this.textBoxTotalFlow.Size = new System.Drawing.Size(130, 27);
+            this.textBoxTotalFlow.Size = new System.Drawing.Size(197, 27);
             this.textBoxTotalFlow.TabIndex = 5;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(354, 93);
+            this.label11.Location = new System.Drawing.Point(486, 94);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 20);
             this.label11.TabIndex = 4;
@@ -543,7 +543,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(260, 93);
+            this.label10.Location = new System.Drawing.Point(357, 94);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(76, 20);
             this.label10.TabIndex = 3;
@@ -552,7 +552,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 93);
+            this.label8.Location = new System.Drawing.Point(228, 94);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 20);
             this.label8.TabIndex = 2;
@@ -578,9 +578,9 @@
             // 
             // buttonCalculatePipe
             // 
-            this.buttonCalculatePipe.Location = new System.Drawing.Point(566, 499);
+            this.buttonCalculatePipe.Location = new System.Drawing.Point(11, 621);
             this.buttonCalculatePipe.Name = "buttonCalculatePipe";
-            this.buttonCalculatePipe.Size = new System.Drawing.Size(165, 66);
+            this.buttonCalculatePipe.Size = new System.Drawing.Size(722, 40);
             this.buttonCalculatePipe.TabIndex = 36;
             this.buttonCalculatePipe.Text = "计算管段参数";
             this.buttonCalculatePipe.UseVisualStyleBackColor = true;
@@ -599,7 +599,7 @@
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "RainfallControl";
-            this.Size = new System.Drawing.Size(750, 577);
+            this.Size = new System.Drawing.Size(750, 678);
             this.groupBoxDesignFlow.ResumeLayout(false);
             this.groupBoxDesignFlow.PerformLayout();
             this.groupBoxDesignRainfallDensity.ResumeLayout(false);

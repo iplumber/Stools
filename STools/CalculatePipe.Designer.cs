@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBoxPipeMaterial = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButtonSlope = new System.Windows.Forms.RadioButton();
@@ -55,26 +54,23 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.listBoxRoughness = new System.Windows.Forms.ListBox();
             this.buttonApply = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.listBoxPipeMaterial);
-            this.groupBox1.Location = new System.Drawing.Point(408, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox1.Size = new System.Drawing.Size(155, 215);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "管道材料";
             // 
             // listBoxPipeMaterial
             // 
@@ -86,15 +82,19 @@
             "PE双壁波纹管",
             "UPVC双壁波纹管",
             "UPVC加筋管"});
-            this.listBoxPipeMaterial.Location = new System.Drawing.Point(12, 37);
+            this.listBoxPipeMaterial.Location = new System.Drawing.Point(393, 54);
             this.listBoxPipeMaterial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxPipeMaterial.Name = "listBoxPipeMaterial";
-            this.listBoxPipeMaterial.Size = new System.Drawing.Size(130, 164);
+            this.listBoxPipeMaterial.Size = new System.Drawing.Size(142, 104);
             this.listBoxPipeMaterial.TabIndex = 1;
             this.listBoxPipeMaterial.SelectedIndexChanged += new System.EventHandler(this.listBoxPipeMaterial_SelectedIndexChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.listBoxPipeMaterial);
+            this.groupBox2.Controls.Add(this.listBoxRoughness);
             this.groupBox2.Controls.Add(this.radioButtonSlope);
             this.groupBox2.Controls.Add(this.radioButtonVelocity);
             this.groupBox2.Controls.Add(this.radioButtonDiameter);
@@ -105,7 +105,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(373, 372);
+            this.groupBox2.Size = new System.Drawing.Size(549, 271);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设计管段参数";
@@ -113,7 +113,7 @@
             // radioButtonSlope
             // 
             this.radioButtonSlope.AutoSize = true;
-            this.radioButtonSlope.Location = new System.Drawing.Point(262, 25);
+            this.radioButtonSlope.Location = new System.Drawing.Point(266, 25);
             this.radioButtonSlope.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonSlope.Name = "radioButtonSlope";
             this.radioButtonSlope.Size = new System.Drawing.Size(90, 24);
@@ -126,7 +126,7 @@
             // radioButtonVelocity
             // 
             this.radioButtonVelocity.AutoSize = true;
-            this.radioButtonVelocity.Location = new System.Drawing.Point(133, 25);
+            this.radioButtonVelocity.Location = new System.Drawing.Point(140, 25);
             this.radioButtonVelocity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonVelocity.Name = "radioButtonVelocity";
             this.radioButtonVelocity.Size = new System.Drawing.Size(97, 24);
@@ -139,7 +139,7 @@
             // radioButtonDiameter
             // 
             this.radioButtonDiameter.AutoSize = true;
-            this.radioButtonDiameter.Location = new System.Drawing.Point(10, 26);
+            this.radioButtonDiameter.Location = new System.Drawing.Point(14, 26);
             this.radioButtonDiameter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButtonDiameter.Name = "radioButtonDiameter";
             this.radioButtonDiameter.Size = new System.Drawing.Size(98, 24);
@@ -185,10 +185,10 @@
             "80.0",
             "90.0",
             "100.0"});
-            this.listBoxSlope.Location = new System.Drawing.Point(262, 54);
+            this.listBoxSlope.Location = new System.Drawing.Point(266, 54);
             this.listBoxSlope.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxSlope.Name = "listBoxSlope";
-            this.listBoxSlope.Size = new System.Drawing.Size(100, 304);
+            this.listBoxSlope.Size = new System.Drawing.Size(108, 204);
             this.listBoxSlope.TabIndex = 5;
             this.listBoxSlope.SelectedIndexChanged += new System.EventHandler(this.listBoxSlope_SelectedIndexChanged);
             // 
@@ -238,10 +238,10 @@
             "4.8",
             "4.9",
             "5.0"});
-            this.listBoxVelocity.Location = new System.Drawing.Point(133, 54);
+            this.listBoxVelocity.Location = new System.Drawing.Point(140, 54);
             this.listBoxVelocity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxVelocity.Name = "listBoxVelocity";
-            this.listBoxVelocity.Size = new System.Drawing.Size(100, 304);
+            this.listBoxVelocity.Size = new System.Drawing.Size(108, 204);
             this.listBoxVelocity.TabIndex = 4;
             this.listBoxVelocity.SelectedIndexChanged += new System.EventHandler(this.listBoxVelocity_SelectedIndexChanged);
             // 
@@ -271,10 +271,10 @@
             "2600",
             "2800",
             "3000"});
-            this.listBoxDiameter.Location = new System.Drawing.Point(10, 54);
+            this.listBoxDiameter.Location = new System.Drawing.Point(14, 54);
             this.listBoxDiameter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxDiameter.Name = "listBoxDiameter";
-            this.listBoxDiameter.Size = new System.Drawing.Size(100, 304);
+            this.listBoxDiameter.Size = new System.Drawing.Size(108, 204);
             this.listBoxDiameter.TabIndex = 3;
             this.listBoxDiameter.SelectedIndexChanged += new System.EventHandler(this.listBoxDiameter_SelectedIndexChanged);
             // 
@@ -294,7 +294,7 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.textBoxDesignTotalRunoffFlow);
             this.groupBox3.Controls.Add(this.labelTotalRunoffFlow);
-            this.groupBox3.Location = new System.Drawing.Point(13, 396);
+            this.groupBox3.Location = new System.Drawing.Point(13, 395);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -385,7 +385,7 @@
             // 
             // textBoxConveyanceCapactiy
             // 
-            this.textBoxConveyanceCapactiy.Location = new System.Drawing.Point(395, 110);
+            this.textBoxConveyanceCapactiy.Location = new System.Drawing.Point(393, 110);
             this.textBoxConveyanceCapactiy.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxConveyanceCapactiy.Name = "textBoxConveyanceCapactiy";
             this.textBoxConveyanceCapactiy.ReadOnly = true;
@@ -395,7 +395,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(391, 86);
+            this.label3.Location = new System.Drawing.Point(389, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 4;
@@ -421,7 +421,7 @@
             // 
             // textBoxDesignTotalRunoffFlow
             // 
-            this.textBoxDesignTotalRunoffFlow.Location = new System.Drawing.Point(395, 48);
+            this.textBoxDesignTotalRunoffFlow.Location = new System.Drawing.Point(393, 48);
             this.textBoxDesignTotalRunoffFlow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDesignTotalRunoffFlow.Name = "textBoxDesignTotalRunoffFlow";
             this.textBoxDesignTotalRunoffFlow.ReadOnly = true;
@@ -431,7 +431,7 @@
             // labelTotalRunoffFlow
             // 
             this.labelTotalRunoffFlow.AutoSize = true;
-            this.labelTotalRunoffFlow.Location = new System.Drawing.Point(391, 24);
+            this.labelTotalRunoffFlow.Location = new System.Drawing.Point(389, 24);
             this.labelTotalRunoffFlow.Name = "labelTotalRunoffFlow";
             this.labelTotalRunoffFlow.Size = new System.Drawing.Size(105, 20);
             this.labelTotalRunoffFlow.TabIndex = 0;
@@ -440,7 +440,7 @@
             // button1
             // 
             this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(13, 559);
+            this.button1.Location = new System.Drawing.Point(12, 559);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 30);
@@ -450,7 +450,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(331, 559);
+            this.buttonOK.Location = new System.Drawing.Point(336, 559);
             this.buttonOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(100, 30);
@@ -461,6 +461,7 @@
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(462, 559);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCancel.Name = "buttonCancel";
@@ -470,40 +471,127 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.listBoxRoughness);
-            this.groupBox4.Location = new System.Drawing.Point(408, 244);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(155, 144);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "粗糙系数";
-            // 
             // listBoxRoughness
             // 
             this.listBoxRoughness.FormattingEnabled = true;
             this.listBoxRoughness.ItemHeight = 20;
             this.listBoxRoughness.Items.AddRange(new object[] {
             "0.013"});
-            this.listBoxRoughness.Location = new System.Drawing.Point(12, 26);
+            this.listBoxRoughness.Location = new System.Drawing.Point(393, 194);
             this.listBoxRoughness.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxRoughness.Name = "listBoxRoughness";
-            this.listBoxRoughness.Size = new System.Drawing.Size(130, 104);
+            this.listBoxRoughness.Size = new System.Drawing.Size(142, 64);
             this.listBoxRoughness.TabIndex = 0;
             this.listBoxRoughness.SelectedIndexChanged += new System.EventHandler(this.listBoxRoughness_SelectedIndexChanged);
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(211, 559);
+            this.buttonApply.Location = new System.Drawing.Point(210, 559);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(100, 30);
             this.buttonApply.TabIndex = 8;
             this.buttonApply.Text = "应用";
             this.buttonApply.UseVisualStyleBackColor = true;
             this.buttonApply.Click += new System.EventHandler(this.buttonApply_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Location = new System.Drawing.Point(13, 294);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(550, 94);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "自定义参数";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "管径(mm)";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(14, 51);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(108, 27);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(140, 51);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(108, 27);
+            this.textBox2.TabIndex = 2;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(266, 51);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(108, 27);
+            this.textBox3.TabIndex = 3;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(393, 51);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(142, 27);
+            this.textBox4.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(140, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 20);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "流速(m/s)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(266, 27);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 20);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "坡度(‰)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(393, 27);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 20);
+            this.label10.TabIndex = 7;
+            this.label10.Text = "粗糙系数";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(393, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "管道材料";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(393, 168);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 20);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "粗糙系数";
             // 
             // CalculatePipe
             // 
@@ -512,33 +600,30 @@
             this.AutoSize = true;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(578, 599);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.buttonApply);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CalculatePipe";
             this.Text = "管段设计参数";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CalculatePipe_FormClosing);
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox listBoxPipeMaterial;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox listBoxDiameter;
@@ -562,11 +647,21 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxRoughness;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox listBoxRoughness;
         private System.Windows.Forms.RadioButton radioButtonDiameter;
         private System.Windows.Forms.RadioButton radioButtonVelocity;
         private System.Windows.Forms.RadioButton radioButtonSlope;
         private System.Windows.Forms.Button buttonApply;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
     }
 }

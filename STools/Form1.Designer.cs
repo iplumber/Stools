@@ -97,7 +97,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(758, 679);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(758, 774);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -128,7 +128,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(752, 613);
+            this.tabControl1.Size = new System.Drawing.Size(752, 708);
             this.tabControl1.TabIndex = 4;
             // 
             // tabPage1
@@ -137,7 +137,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(744, 580);
+            this.tabPage1.Size = new System.Drawing.Size(744, 675);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "雨水";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -151,14 +151,14 @@
             this.rainfallControl1.Location = new System.Drawing.Point(3, 3);
             this.rainfallControl1.Margin = new System.Windows.Forms.Padding(0);
             this.rainfallControl1.Name = "rainfallControl1";
-            this.rainfallControl1.Size = new System.Drawing.Size(738, 574);
+            this.rainfallControl1.Size = new System.Drawing.Size(738, 669);
             this.rainfallControl1.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 679);
+            this.ClientSize = new System.Drawing.Size(758, 774);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
