@@ -15,6 +15,7 @@ namespace STools
         public BuildingReturnPeriod()
         {
             InitializeComponent();
+            radioButtonZone.Checked = true;
         }
 
         private void radioButtonZone_CheckedChanged(object sender, EventArgs e)

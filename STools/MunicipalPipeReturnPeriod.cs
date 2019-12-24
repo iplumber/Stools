@@ -15,6 +15,8 @@ namespace STools
         public MunicipalPipeReturnPeriod()
         {
             InitializeComponent();
+            listBoxTypeOfCity.SelectedIndex = 0;
+            listBoxTypeOfRegion.SelectedIndex = 0;
         }
 
         public string[] periodArray;

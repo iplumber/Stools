@@ -17,17 +17,17 @@ namespace STools
             InitializeComponent();
 
             SuspendLayout();
-            inputDiameter = 300;
-            inputVelocity = 1.0;
-            inputSlope = 0.003;
-            inputRoughness = 0.013;
-            inputMaterial = "球磨铸铁管";
+            //inputDiameter = 300;
+            //inputVelocity = 1.0;
+            //inputSlope = 0.003;
+            //inputRoughness = 0.013;
+            //inputMaterial = "球磨铸铁管";
 
             radioButtonDiameter.Checked = true;
-            listBoxPipeMaterial.SelectedIndex = 0;
-            listBoxRoughness.SelectedIndex = 0;
+            listBoxPipeMaterial.SelectedIndex = 4;
+            listBoxRoughness.SelectedIndex = 4;
 
-            listBoxDiameter.SelectedIndex = 0;
+            listBoxDiameter.SelectedIndex = 6;
             listBoxVelocity.SelectedIndex = 9;
             listBoxSlope.SelectedIndex = 2;
 
@@ -52,7 +52,6 @@ namespace STools
         {
             textBoxDesignTotalRunoffFlow.Text = flow;
             labelTotalRunoffFlow.Text = "设计总径流量" + _flowUnit;
-
             totalFlow = Convert.ToDouble(flow);
             totalFlowUnit = _flowUnit;
         }
@@ -101,16 +100,22 @@ namespace STools
         private void radioButtonDiameter_CheckedChanged(object sender, EventArgs e)
         {
             listBoxDiameter.Enabled = radioButtonDiameter.Checked;
+            if (radioButtonDiameter.Checked || radioButtonVelocity.Checked || radioButtonSlope.Checked)
+                checkBoxUserDefine.Checked = false;
         }
 
         private void radioButtonVelocity_CheckedChanged(object sender, EventArgs e)
         {
             listBoxVelocity.Enabled = radioButtonVelocity.Checked;
+            if (radioButtonDiameter.Checked || radioButtonVelocity.Checked || radioButtonSlope.Checked)
+                checkBoxUserDefine.Checked = false;
         }
 
         private void radioButtonSlope_CheckedChanged(object sender, EventArgs e)
         {
             listBoxSlope.Enabled = radioButtonSlope.Checked;
+            if (radioButtonDiameter.Checked || radioButtonVelocity.Checked || radioButtonSlope.Checked)
+                checkBoxUserDefine.Checked = false;
         }
 
         private void buttonApply_Click(object sender, EventArgs e)
@@ -184,12 +189,35 @@ namespace STools
                 pipe.diameter = CeilingDiameter(pipe.diameter);
                 pipe.velocity = Calculate_v_By_n_D_i(pipe.roughness, pipe.diameter, pipe.slope);
             }
+
+            if (checkBoxUserDefine.Checked == true)
+            {
+                double.TryParse(textBoxUserDefineDiameter.Text, out pipe.diameter);
+                pipe.diameter = pipe.diameter / 1000.0;
+                //double.TryParse(textBoxUserDefineVelocity.Text, out pipe.velocity);
+                double.TryParse(textBoxUserDefineSlope.Text, out pipe.slope);
+                pipe.slope = pipe.slope / 1000.0;
+                double.TryParse(textBoxUserDefineRoughness.Text, out pipe.roughness);
+                pipe.velocity = Calculate_v_By_n_D_i(pipe.roughness, pipe.diameter, pipe.slope);
+                textBoxUserDefineVelocity.Text = Convert.ToString(Math.Round(pipe.velocity, 2));
+            }
+
             textBoxRoughness.Text = pipe.roughness.ToString();
             textBoxVelocity.Text = Convert.ToString(Math.Round(pipe.velocity, 2));
             textBoxSlope.Text = Convert.ToString(MathCeiling(pipe.slope * 1000, 1));
             textBoxDiameter.Text = Convert.ToString(Math.Round(pipe.diameter * 1000, 2));
             textBoxPipeMaterial.Text = inputMaterial;
-            textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe),2));
+            double converyanceCapacity = CalculateConveryanceCapacity(pipe);
+            if (converyanceCapacity >= 1.0)
+            {
+                labelConveyanceCapactiy.Text = "管道过流能力" + "(m^3/s)";
+            }
+            else
+            {
+                labelConveyanceCapactiy.Text = "管道过流能力" + "(L/s)";
+                converyanceCapacity = converyanceCapacity * 1000;
+            }
+            textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(converyanceCapacity, 2));
         }
 
         public double Calculate_v_By_Q_D(double flow, double diameter)
@@ -242,7 +270,18 @@ namespace STools
             textBoxVelocity.Text = Convert.ToString(Math.Round(pipe.velocity, 2));
             textBoxSlope.Text = Convert.ToString(MathCeiling(pipe.slope * 1000, 1));
             textBoxDiameter.Text = Convert.ToString(Math.Round(pipe.diameter * 1000, 2));
-            textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(CalculateConveryanceCapacity(pipe), 2));
+
+            double converyanceCapacity = CalculateConveryanceCapacity(pipe);
+            if (converyanceCapacity >= 1.0)
+            {
+                labelConveyanceCapactiy.Text = "管道过流能力" + "(m^3/s)";
+            }
+            else
+            {
+                labelConveyanceCapactiy.Text = "管道过流能力" + "(L/s)";
+                converyanceCapacity = converyanceCapacity * 1000;
+            }
+            textBoxConveyanceCapactiy.Text = Convert.ToString(Math.Round(converyanceCapacity, 2));
         }
 
         private double CeilingDiameter(double diameter)
@@ -351,7 +390,59 @@ namespace STools
 
         }
 
+        private void checkBoxUserDefine_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxUserDefine.Checked == true)
+            {
+                radioButtonDiameter.Checked = false;
+                listBoxDiameter.Enabled = false;
+                radioButtonVelocity.Checked = false;
+                listBoxVelocity.Enabled = false;
+                radioButtonSlope.Checked = false;
+                listBoxSlope.Enabled = false;
+                listBoxRoughness.Enabled = false;
 
+                textBoxUserDefineDiameter.Enabled = true;
+                textBoxUserDefineVelocity.Enabled = true;
+                textBoxUserDefineSlope.Enabled = true;
+                textBoxUserDefineRoughness.Enabled = true;
+
+                textBoxUserDefineDiameter.TextChanged -= textBoxUserDefineDiameter_TextChanged;
+                textBoxUserDefineSlope.TextChanged -= textBoxUserDefineSlope_TextChanged;
+                textBoxUserDefineRoughness.TextChanged -= textBoxUserDefineRoughness_TextChanged;
+                textBoxUserDefineDiameter.Text = textBoxDiameter.Text;
+                textBoxUserDefineVelocity.Text = textBoxVelocity.Text;
+                textBoxUserDefineSlope.Text = textBoxSlope.Text;
+                textBoxUserDefineRoughness.Text = textBoxRoughness.Text;
+                textBoxUserDefineDiameter.TextChanged += textBoxUserDefineDiameter_TextChanged;
+                textBoxUserDefineSlope.TextChanged += textBoxUserDefineSlope_TextChanged;
+                textBoxUserDefineRoughness.TextChanged += textBoxUserDefineRoughness_TextChanged;
+            }
+            else if (checkBoxUserDefine.Checked == false)
+            {
+                textBoxUserDefineDiameter.Enabled = false;
+                textBoxUserDefineVelocity.Enabled = false;
+                textBoxUserDefineSlope.Enabled = false;
+                textBoxUserDefineRoughness.Enabled = false;
+
+                listBoxRoughness.Enabled = true;
+            }
+        }
+
+        private void textBoxUserDefineDiameter_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDiameterAndVelocityAndSlope();
+        }
+
+        private void textBoxUserDefineSlope_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDiameterAndVelocityAndSlope();
+        }
+
+        private void textBoxUserDefineRoughness_TextChanged(object sender, EventArgs e)
+        {
+            CalculateDiameterAndVelocityAndSlope();
+        }
     }
 
     public class Pipe

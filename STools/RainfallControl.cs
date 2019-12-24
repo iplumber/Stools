@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using Newtonsoft.Json;
 using System.Xml;
+using Microsoft.Win32;
 
 namespace STools
 {
@@ -30,11 +31,44 @@ namespace STools
                     comboBoxProvince.Items.Add(line);
                 }
                 comboBoxProvince.SelectedIndex = 0;
+                ReadSettingFromRegister();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+
+        private void ReadSettingFromRegister()
+        {
+            RegistryKey sToolsKey = Registry.CurrentUser;
+            RegistryKey sToolsSubkeySoftware = sToolsKey.OpenSubKey("SOFTWARE", true);
+            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("STools");
+
+            if (sTools.GetValue("region") == null)
+            {
+                comboBoxProvince.SelectedIndex = 0;
+                listBoxCity.SelectedIndex = 0;
+                listBoxRegion.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBoxProvince.SelectedIndex = Convert.ToInt32(sTools.GetValue("province").ToString());
+                listBoxCity.SelectedIndex = Convert.ToInt32(sTools.GetValue("city").ToString());
+                listBoxRegion.SelectedIndex = Convert.ToInt32(sTools.GetValue("region").ToString());
+            }
+        }
+
+        public void SaveSettingToRegister()
+        {
+            RegistryKey sToolsKey = Registry.CurrentUser;
+            RegistryKey sToolsSubkeySoftware = sToolsKey.OpenSubKey("SOFTWARE", true);
+            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("STools");
+
+            sTools.SetValue("province", comboBoxProvince.SelectedIndex.ToString());
+            sTools.SetValue("city", listBoxCity.SelectedIndex.ToString());
+            sTools.SetValue("region", listBoxRegion.SelectedIndex.ToString());
         }
 
         private void comboBoxProvince_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,8 +109,8 @@ namespace STools
                 listBoxRegion.SelectedIndex = 0;
 
                 queryText = string.Format("//City[CityName='{0}']//document/text()", cityName);
-                listBoxDocument.Items.Clear();
-                listBoxDocument.Items.Add(getList(queryText)[0]);
+                textBoxDocument.Clear();
+                textBoxDocument.Text = getList(queryText)[0];
             }
             catch (Exception err)
             {

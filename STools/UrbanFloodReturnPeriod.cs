@@ -15,6 +15,7 @@ namespace STools
         public UrbanFloodReturnPeriod()
         {
             InitializeComponent();
+            radioButtonMegacity.Checked = true;
         }
 
         private void radioButtonMegacity_CheckedChanged(object sender, EventArgs e)

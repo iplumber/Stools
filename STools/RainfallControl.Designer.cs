@@ -34,7 +34,6 @@
             this.listBoxRegion = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBoxDocument = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label_q_i = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxDocument = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxRoughness = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -97,9 +97,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
+            this.label1.Size = new System.Drawing.Size(133, 20);
             this.label1.TabIndex = 20;
-            this.label1.Text = "选择省份：";
+            this.label1.Text = "省/自治区/直辖市";
             // 
             // listBoxCity
             // 
@@ -126,36 +126,27 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 87);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 20;
-            this.label2.Text = "选择城市：";
+            this.label2.Text = "城市";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(139, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 20;
-            this.label3.Text = "选择地区：";
-            // 
-            // listBoxDocument
-            // 
-            this.listBoxDocument.FormattingEnabled = true;
-            this.listBoxDocument.ItemHeight = 20;
-            this.listBoxDocument.Location = new System.Drawing.Point(13, 312);
-            this.listBoxDocument.Name = "listBoxDocument";
-            this.listBoxDocument.Size = new System.Drawing.Size(251, 64);
-            this.listBoxDocument.TabIndex = 4;
+            this.label3.Text = "地区";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 286);
+            this.label4.Location = new System.Drawing.Point(13, 289);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 20);
+            this.label4.Size = new System.Drawing.Size(73, 20);
             this.label4.TabIndex = 20;
-            this.label4.Text = "选择公式来源：";
+            this.label4.Text = "公式来源";
             // 
             // label_q_i
             // 
@@ -180,7 +171,7 @@
             // 
             this.labelTop.AutoSize = true;
             this.labelTop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTop.Location = new System.Drawing.Point(55, 27);
+            this.labelTop.Location = new System.Drawing.Point(55, 28);
             this.labelTop.Name = "labelTop";
             this.labelTop.Size = new System.Drawing.Size(130, 20);
             this.labelTop.TabIndex = 42;
@@ -417,8 +408,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBoxDocument);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.listBoxDocument);
             this.groupBox2.Controls.Add(this.listBoxRegion);
             this.groupBox2.Controls.Add(this.comboBoxProvince);
             this.groupBox2.Controls.Add(this.listBoxCity);
@@ -433,6 +424,14 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "暴雨强度公式";
+            // 
+            // textBoxDocument
+            // 
+            this.textBoxDocument.Location = new System.Drawing.Point(13, 318);
+            this.textBoxDocument.Multiline = true;
+            this.textBoxDocument.Name = "textBoxDocument";
+            this.textBoxDocument.Size = new System.Drawing.Size(251, 58);
+            this.textBoxDocument.TabIndex = 21;
             // 
             // groupBox3
             // 
@@ -620,7 +619,6 @@
         private System.Windows.Forms.ListBox listBoxRegion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBoxDocument;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label_q_i;
         private System.Windows.Forms.Label label6;
@@ -663,5 +661,6 @@
         private System.Windows.Forms.Button buttonCalculatePipe;
         private System.Windows.Forms.TextBox textBoxRoughness;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBoxDocument;
     }
 }
