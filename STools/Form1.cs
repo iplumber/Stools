@@ -20,6 +20,11 @@ namespace STools
             InitializeComponent();
 
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            rainfallControl1.SaveSettingToRegister();
+        }
     }
 
 

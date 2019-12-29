@@ -17,6 +17,8 @@ namespace STools
             InitializeComponent();
         }
 
+        public RainfallControl ParentDialog;
+
         public double totalArea;
         public double weightedRunoffCoefficient;
 
@@ -27,6 +29,9 @@ namespace STools
 
             calWeightedRunoffCoefficient();
             textBoxWeightedRunoffCoefficient.Text = Math.Round(weightedRunoffCoefficient, 3).ToString();
+
+            ParentDialog.SetTotalArea(totalArea);
+            ParentDialog.SetWeightedRunoffCoefficient(weightedRunoffCoefficient);
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
@@ -36,6 +41,9 @@ namespace STools
 
             calWeightedRunoffCoefficient();
             textBoxWeightedRunoffCoefficient.Text = Math.Round(weightedRunoffCoefficient, 3).ToString();
+
+            ParentDialog.SetTotalArea(totalArea);
+            ParentDialog.SetWeightedRunoffCoefficient(weightedRunoffCoefficient);
 
             this.Close();
         }
@@ -81,6 +89,12 @@ namespace STools
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RunoffCoefficient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 }
