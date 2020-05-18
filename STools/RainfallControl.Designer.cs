@@ -85,6 +85,7 @@
             // 
             // comboBoxProvince
             // 
+            this.comboBoxProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxProvince.FormattingEnabled = true;
             this.comboBoxProvince.Location = new System.Drawing.Point(13, 52);
             this.comboBoxProvince.Name = "comboBoxProvince";

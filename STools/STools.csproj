@@ -102,6 +102,13 @@
     <Compile Include="RunoffCoefficient .Designer.cs">
       <DependentUpon>RunoffCoefficient .cs</DependentUpon>
     </Compile>
+    <Compile Include="SpongeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SpongeControl.Designer.cs">
+      <DependentUpon>SpongeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STJson.cs" />
     <Compile Include="UrbanFloodReturnPeriod.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RunoffCoefficient .resx">
       <DependentUpon>RunoffCoefficient .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpongeControl.resx">
+      <DependentUpon>SpongeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UrbanFloodReturnPeriod.resx">
       <DependentUpon>UrbanFloodReturnPeriod.cs</DependentUpon>

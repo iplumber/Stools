@@ -30,19 +30,23 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageManagement = new System.Windows.Forms.TabPage();
+            this.tabPageHotWater = new System.Windows.Forms.TabPage();
+            this.tabPageFireWater = new System.Windows.Forms.TabPage();
+            this.tabPageWasteWater = new System.Windows.Forms.TabPage();
+            this.tabPageRainfall = new System.Windows.Forms.TabPage();
             this.rainfallControl1 = new STools.RainfallControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPageSponge = new System.Windows.Forms.TabPage();
+            this.spongeControl1 = new STools.SpongeControl();
+            this.tabPageCriterion = new System.Windows.Forms.TabPage();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.tabPageWaterSupply = new System.Windows.Forms.TabPage();
+            this.waterSupplyControl1 = new STools.WaterSupplyControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageRainfall.SuspendLayout();
+            this.tabPageSponge.SuspendLayout();
+            this.tabPageWaterSupply.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,15 +66,15 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage8);
-            this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Controls.Add(this.tabPageManagement);
+            this.tabControl1.Controls.Add(this.tabPageWaterSupply);
+            this.tabControl1.Controls.Add(this.tabPageHotWater);
+            this.tabControl1.Controls.Add(this.tabPageFireWater);
+            this.tabControl1.Controls.Add(this.tabPageWasteWater);
+            this.tabControl1.Controls.Add(this.tabPageRainfall);
+            this.tabControl1.Controls.Add(this.tabPageSponge);
+            this.tabControl1.Controls.Add(this.tabPageCriterion);
+            this.tabControl1.Controls.Add(this.tabPageAbout);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Multiline = true;
@@ -79,16 +83,52 @@
             this.tabControl1.Size = new System.Drawing.Size(752, 703);
             this.tabControl1.TabIndex = 4;
             // 
-            // tabPage1
+            // tabPageManagement
             // 
-            this.tabPage1.Controls.Add(this.rainfallControl1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(744, 670);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "雨水";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageManagement.Location = new System.Drawing.Point(4, 29);
+            this.tabPageManagement.Name = "tabPageManagement";
+            this.tabPageManagement.Size = new System.Drawing.Size(744, 670);
+            this.tabPageManagement.TabIndex = 1;
+            this.tabPageManagement.Text = "项目管理";
+            this.tabPageManagement.UseVisualStyleBackColor = true;
+            // 
+            // tabPageHotWater
+            // 
+            this.tabPageHotWater.Location = new System.Drawing.Point(4, 29);
+            this.tabPageHotWater.Name = "tabPageHotWater";
+            this.tabPageHotWater.Size = new System.Drawing.Size(744, 670);
+            this.tabPageHotWater.TabIndex = 3;
+            this.tabPageHotWater.Text = "热水";
+            this.tabPageHotWater.UseVisualStyleBackColor = true;
+            // 
+            // tabPageFireWater
+            // 
+            this.tabPageFireWater.Location = new System.Drawing.Point(4, 29);
+            this.tabPageFireWater.Name = "tabPageFireWater";
+            this.tabPageFireWater.Size = new System.Drawing.Size(744, 670);
+            this.tabPageFireWater.TabIndex = 4;
+            this.tabPageFireWater.Text = "消防";
+            this.tabPageFireWater.UseVisualStyleBackColor = true;
+            // 
+            // tabPageWasteWater
+            // 
+            this.tabPageWasteWater.Location = new System.Drawing.Point(4, 29);
+            this.tabPageWasteWater.Name = "tabPageWasteWater";
+            this.tabPageWasteWater.Size = new System.Drawing.Size(744, 670);
+            this.tabPageWasteWater.TabIndex = 5;
+            this.tabPageWasteWater.Text = "污废水";
+            this.tabPageWasteWater.UseVisualStyleBackColor = true;
+            // 
+            // tabPageRainfall
+            // 
+            this.tabPageRainfall.Controls.Add(this.rainfallControl1);
+            this.tabPageRainfall.Location = new System.Drawing.Point(4, 29);
+            this.tabPageRainfall.Name = "tabPageRainfall";
+            this.tabPageRainfall.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageRainfall.Size = new System.Drawing.Size(744, 670);
+            this.tabPageRainfall.TabIndex = 0;
+            this.tabPageRainfall.Text = "雨水";
+            this.tabPageRainfall.UseVisualStyleBackColor = true;
             // 
             // rainfallControl1
             // 
@@ -102,77 +142,61 @@
             this.rainfallControl1.Size = new System.Drawing.Size(738, 664);
             this.rainfallControl1.TabIndex = 0;
             // 
-            // tabPage2
+            // tabPageSponge
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(744, 670);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "项目管理";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageSponge.Controls.Add(this.spongeControl1);
+            this.tabPageSponge.Location = new System.Drawing.Point(4, 29);
+            this.tabPageSponge.Name = "tabPageSponge";
+            this.tabPageSponge.Size = new System.Drawing.Size(744, 670);
+            this.tabPageSponge.TabIndex = 6;
+            this.tabPageSponge.Text = "海绵";
+            this.tabPageSponge.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // spongeControl1
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(744, 670);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "给水";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.spongeControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spongeControl1.Location = new System.Drawing.Point(0, 4);
+            this.spongeControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.spongeControl1.Name = "spongeControl1";
+            this.spongeControl1.Size = new System.Drawing.Size(750, 678);
+            this.spongeControl1.TabIndex = 0;
             // 
-            // tabPage4
+            // tabPageCriterion
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(744, 670);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "热水";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPageCriterion.Location = new System.Drawing.Point(4, 29);
+            this.tabPageCriterion.Name = "tabPageCriterion";
+            this.tabPageCriterion.Size = new System.Drawing.Size(744, 670);
+            this.tabPageCriterion.TabIndex = 7;
+            this.tabPageCriterion.Text = "规范";
+            this.tabPageCriterion.UseVisualStyleBackColor = true;
             // 
-            // tabPage5
+            // tabPageAbout
             // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(744, 670);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "消防";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 29);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(744, 670);
+            this.tabPageAbout.TabIndex = 8;
+            this.tabPageAbout.Text = "关于";
+            this.tabPageAbout.UseVisualStyleBackColor = true;
             // 
-            // tabPage6
+            // tabPageWaterSupply
             // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(744, 670);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "污废水";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPageWaterSupply.Controls.Add(this.waterSupplyControl1);
+            this.tabPageWaterSupply.Location = new System.Drawing.Point(4, 29);
+            this.tabPageWaterSupply.Name = "tabPageWaterSupply";
+            this.tabPageWaterSupply.Size = new System.Drawing.Size(744, 670);
+            this.tabPageWaterSupply.TabIndex = 2;
+            this.tabPageWaterSupply.Text = "给水";
+            this.tabPageWaterSupply.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // waterSupplyControl1
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(744, 670);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "海绵";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(744, 670);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "规范查询";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(744, 670);
-            this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "关于";
-            this.tabPage9.UseVisualStyleBackColor = true;
+            this.waterSupplyControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.waterSupplyControl1.Location = new System.Drawing.Point(6, 4);
+            this.waterSupplyControl1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.waterSupplyControl1.Name = "waterSupplyControl1";
+            this.waterSupplyControl1.Size = new System.Drawing.Size(750, 678);
+            this.waterSupplyControl1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -187,8 +211,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageRainfall.ResumeLayout(false);
+            this.tabPageRainfall.PerformLayout();
+            this.tabPageSponge.ResumeLayout(false);
+            this.tabPageWaterSupply.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -196,16 +222,18 @@
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPageRainfall;
         private RainfallControl rainfallControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.TabPage tabPage8;
-        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TabPage tabPageManagement;
+        private System.Windows.Forms.TabPage tabPageHotWater;
+        private System.Windows.Forms.TabPage tabPageFireWater;
+        private System.Windows.Forms.TabPage tabPageWasteWater;
+        private System.Windows.Forms.TabPage tabPageSponge;
+        private System.Windows.Forms.TabPage tabPageCriterion;
+        private System.Windows.Forms.TabPage tabPageAbout;
+        private SpongeControl spongeControl1;
+        private System.Windows.Forms.TabPage tabPageWaterSupply;
+        private WaterSupplyControl waterSupplyControl1;
     }
 }
 

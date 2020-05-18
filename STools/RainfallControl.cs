@@ -44,7 +44,7 @@ namespace STools
         {
             RegistryKey sToolsKey = Registry.CurrentUser;
             RegistryKey sToolsSubkeySoftware = sToolsKey.OpenSubKey("SOFTWARE", true);
-            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("STools");
+            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("SToolsRainfallControl");
 
             if (sTools.GetValue("region") == null)
             {
@@ -64,7 +64,7 @@ namespace STools
         {
             RegistryKey sToolsKey = Registry.CurrentUser;
             RegistryKey sToolsSubkeySoftware = sToolsKey.OpenSubKey("SOFTWARE", true);
-            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("STools");
+            RegistryKey sTools = sToolsSubkeySoftware.CreateSubKey("SToolsRainfallControl");
 
             sTools.SetValue("province", comboBoxProvince.SelectedIndex.ToString());
             sTools.SetValue("city", listBoxCity.SelectedIndex.ToString());
